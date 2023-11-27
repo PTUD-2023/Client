@@ -35,7 +35,9 @@ const Auth = () => {
                 Sign Up
               </button>
             </div>
-            <Card className='w-96'>{isLoginTab ? <Login setIsLoginTab={setIsLoginTab} /> : <Register />}</Card>
+            <Card className='w-96'>
+              {isLoginTab ? <Login setIsLoginTab={setIsLoginTab} /> : <Register setIsLoginTab={setIsLoginTab} />}
+            </Card>
           </div>
         </div>
       </div>

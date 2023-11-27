@@ -8,7 +8,7 @@ type AppContextType = {
 }
 
 const inititalAppContext: AppContextType = {
-  isAuthenticated: Boolean(false /* getAccessTokenFromLS() && localStorage.getItem('persist:root') */),
+  isAuthenticated: Boolean(getAccessTokenFromLS() && localStorage.getItem('persist:root')),
   setIsAuthenticated: () => null,
   reset: () => null
 }

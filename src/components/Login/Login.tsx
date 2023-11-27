@@ -1,11 +1,47 @@
 import { Button, CardBody, CardFooter, CardHeader, Input, Typography } from '@material-tailwind/react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useFormik } from 'formik'
+import { useContext } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import authApi from 'src/apis/auth.api'
+import userAccountApi from 'src/apis/userAccount.api'
+import routes from 'src/constants/routes'
+import { AppContext } from 'src/contexts/app.context'
+import { setUserAccountAction } from 'src/redux/actions/userAccountAction'
+import { toast } from 'react-toastify'
+import { isAxiosBadRequestError } from 'src/utils/utils'
+import { ErrorResponse } from 'src/types/utils.type'
 
 interface Props {
   setIsLoginTab: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Login = ({ setIsLoginTab }: Props) => {
+  const queryClient = useQueryClient()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { setIsAuthenticated } = useContext(AppContext)
+
+  const signInAccountMutation = useMutation({
+    mutationFn: (body: { email: string; password: string }) => authApi.signIn(body)
+  })
+
+  const profileQuery = useQuery({
+    queryKey: ['profile'],
+    queryFn: () => userAccountApi.getUserInfor(),
+    enabled: signInAccountMutation.isSuccess,
+    onSuccess: (data) => {
+      const profile = data.data
+      dispatch(setUserAccountAction(profile))
+      setIsAuthenticated(true)
+      navigate(routes.home)
+    },
+    onError: (error) => {
+      console.log(error)
+    }
+  })
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -14,29 +50,25 @@ const Login = ({ setIsLoginTab }: Props) => {
 
     onSubmit: async (data) => {
       console.log(data)
-      // await signInAccountMutation.mutate(data, {
-      //   onSuccess: (res) => {
-      //     // Khi login thành công thì sẽ gọi api get profile
-      //     // Query key của hàm invalidateQueries match với query key của useQuery trên => Gọi API trên
-      //     if (res.data.accessToken === '') {
-      //       dispatch(updateTempAccountAction({ email: data.email, password: data.password, isConfirmed: false }))
-      //       navigate('/authenticate/' + res.data.key)
-      //     } else {
-      //       queryClient.invalidateQueries({
-      //         queryKey: ['profile']
-      //       })
-      //     }
-      //   },
-      //   onError: (error) => {
-      //     if (isAxiosBadRequestError<ErrorResponse>(error)) {
-      //       // Kiểm tra lỗi có phải từ API trả về không
-      //       const formError = error.response?.data
-      //       if (formError && formError.errorKey === 'EmailOrPasswordInValid') {
-      //         setErrorMessage(formError.message)
-      //       }
-      //     }
-      //   }
-      // })
+      await signInAccountMutation.mutate(data, {
+        onSuccess: () => {
+          // Khi login thành công thì sẽ gọi api get profile
+          // Query key của hàm invalidateQueries match với query key của useQuery trên => Gọi API trên
+
+          queryClient.invalidateQueries({
+            queryKey: ['profile']
+          })
+        },
+        onError: (error) => {
+          if (isAxiosBadRequestError<ErrorResponse>(error)) {
+            // Kiểm tra lỗi có phải từ API trả về không
+            const formError = error.response?.data
+            if (formError && formError.errorKey === 'EmailOrPasswordInValid') {
+              toast.error(formError.message, { autoClose: 2000 })
+            }
+          }
+        }
+      })
     }
   })
 
@@ -70,6 +102,7 @@ const Login = ({ setIsLoginTab }: Props) => {
             label='Email'
             size='lg'
             crossOrigin={undefined}
+            required
           />
           <Input
             id='password'
@@ -81,6 +114,7 @@ const Login = ({ setIsLoginTab }: Props) => {
             size='lg'
             crossOrigin={undefined}
             type='password'
+            required
           />
         </form>
         <div className='flex justify-end mt-2'>
@@ -88,9 +122,18 @@ const Login = ({ setIsLoginTab }: Props) => {
         </div>
       </CardBody>
       <CardFooter className='pt-0'>
-        <Button form='form-login' type='submit' variant='gradient' color='blue' className='text-lg leading-5' fullWidth>
-          Login
-        </Button>
+        {!profileQuery.isInitialLoading && (
+          <Button
+            form='form-login'
+            type='submit'
+            variant='gradient'
+            color='blue'
+            className='text-lg leading-5'
+            fullWidth
+          >
+            Login
+          </Button>
+        )}
       </CardFooter>
     </div>
   )

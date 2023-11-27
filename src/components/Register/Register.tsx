@@ -1,8 +1,44 @@
-import { Button, CardBody, CardFooter, CardHeader, Input, Typography } from '@material-tailwind/react'
+import { Button, CardBody, CardFooter, CardHeader, Typography } from '@material-tailwind/react'
+import { useMutation } from '@tanstack/react-query'
 import { useFormik } from 'formik'
-import { userSchema } from 'src/types/user.type'
+import authApi from 'src/apis/auth.api'
+import { User, userSchema } from 'src/types/user.type'
+import { ErrorResponse } from 'src/types/utils.type'
+import { isAxiosInternalServerError } from 'src/utils/utils'
+import { toast } from 'react-toastify'
+import { useState } from 'react'
+import CustomInput from '../CustomInput'
 
-export const Register = () => {
+interface Props {
+  setIsLoginTab: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const Register = ({ setIsLoginTab }: Props) => {
+  const [openPopoverFirstName, setOpenPopoverFirstName] = useState<boolean>(false)
+  const [openPopoverLastName, setOpenPopoverLastName] = useState<boolean>(false)
+  const [openPopoverEmail, setOpenPopoverEmail] = useState<boolean>(false)
+  const [openPopoverPassword, setOpenPopoverPassword] = useState<boolean>(false)
+  const [openPopoverConfirmPassword, setOpenPopoverCofirmPassword] = useState<boolean>(false)
+  const [openPopoverPhone, setOpenPopoverPhone] = useState<boolean>(false)
+  const [errorMsg, setErrorMsg] = useState<string>('')
+
+  const signupMutation = useMutation({
+    mutationFn: (body: Pick<User, 'email' | 'password' | 'lastName' | 'firstName' | 'confirmPassword' | 'phone'>) =>
+      authApi.signUp(body),
+    onSuccess: () => {
+      toast.success('Sign up successfully', { autoClose: 2000 })
+      setIsLoginTab(true)
+    },
+    onError: (error) => {
+      if (isAxiosInternalServerError<ErrorResponse>(error)) {
+        const formError = error.response?.data
+        if (formError) {
+          toast.error(formError.message, { autoClose: 2000 })
+        }
+      }
+    }
+  })
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -20,12 +56,10 @@ export const Register = () => {
       phone: false,
       confirmPassword: false
     },
-    //validationSchema: userSchema,
+    validationSchema: userSchema,
     onSubmit: async (data) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      // const { day, month, year, ...rest } = data
-      // await signupMutation.mutate(rest)
-      console.log(data)
+      await signupMutation.mutate(data)
     }
   })
 
@@ -44,67 +78,77 @@ export const Register = () => {
       </CardHeader>
       <CardBody className='mb-6'>
         <form id='form-register' onSubmit={formik.handleSubmit} className='flex flex-col gap-4 '>
-          <Input
+          {/* email */}
+          <CustomInput
+            type='text'
+            openPopoverError={openPopoverEmail}
+            setOpenPopoverError={setOpenPopoverEmail}
+            formik={formik}
+            errorMsg={errorMsg}
+            setErrorMsg={setErrorMsg}
+            label='Email'
             id='my-email'
             name='email'
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            color='blue'
-            label='Email'
-            size='lg'
-            crossOrigin={undefined}
           />
-          <Input
+          {/* first name */}
+          <CustomInput
+            type='text'
+            openPopoverError={openPopoverFirstName}
+            setOpenPopoverError={setOpenPopoverFirstName}
+            formik={formik}
+            errorMsg={errorMsg}
+            setErrorMsg={setErrorMsg}
+            label='First Name'
             id='firstName'
             name='firstName'
-            value={formik.values.firstName}
-            onChange={formik.handleChange}
-            color='blue'
-            label='First Name'
-            size='lg'
-            crossOrigin={undefined}
           />
-          <Input
+          {/* last name */}
+          <CustomInput
+            type='text'
+            openPopoverError={openPopoverLastName}
+            setOpenPopoverError={setOpenPopoverLastName}
+            formik={formik}
+            errorMsg={errorMsg}
+            setErrorMsg={setErrorMsg}
+            label='Last Name'
             id='lastName'
             name='lastName'
-            value={formik.values.lastName}
-            onChange={formik.handleChange}
-            color='blue'
-            label='Last Name'
-            size='lg'
-            crossOrigin={undefined}
           />
-          <Input
+          {/* Phone */}
+          <CustomInput
+            type='text'
+            openPopoverError={openPopoverPhone}
+            setOpenPopoverError={setOpenPopoverPhone}
+            formik={formik}
+            errorMsg={errorMsg}
+            setErrorMsg={setErrorMsg}
+            label='Phone'
             id='my-phone'
             name='phone'
-            value={formik.values.phone}
-            onChange={formik.handleChange}
-            color='blue'
-            label='Phone'
-            size='lg'
-            crossOrigin={undefined}
           />
-          <Input
+          {/* password */}
+          <CustomInput
+            type='password'
+            openPopoverError={openPopoverPassword}
+            setOpenPopoverError={setOpenPopoverPassword}
+            formik={formik}
+            errorMsg={errorMsg}
+            setErrorMsg={setErrorMsg}
+            label='Password'
             id='my-password'
             name='password'
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            color='blue'
-            label='Confirm password'
-            size='lg'
-            crossOrigin={undefined}
-            type='password'
           />
-          <Input
+          {/* password */}
+          <CustomInput
+            type='password'
+            openPopoverError={openPopoverConfirmPassword}
+            setOpenPopoverError={setOpenPopoverCofirmPassword}
+            formik={formik}
+            errorMsg={errorMsg}
+            setErrorMsg={setErrorMsg}
+            label='Confirm password'
             id='my-confirm-password'
             name='confirmPassword'
-            value={formik.values.confirmPassword}
-            onChange={formik.handleChange}
-            color='blue'
-            label='Password'
-            size='lg'
-            crossOrigin={undefined}
-            type='password'
           />
         </form>
       </CardBody>
