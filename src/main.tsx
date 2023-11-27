@@ -10,7 +10,7 @@ import { ThemeProvider } from '@material-tailwind/react'
 import AppProvider from './contexts/app.context'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import { store, persistor } from './redux/store'
+// import { store, persistor } from './redux/store'
 
 // Tắt tự động fetch api khi focus vào window
 const queryClient = new QueryClient({
@@ -106,18 +106,18 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
-          <PersistGate persistor={persistor}>
-            <AppProvider>
-              <HelmetProvider>
-                <ThemeProvider value={theme}>
-                  <App />
-                </ThemeProvider>
-              </HelmetProvider>
-            </AppProvider>
-            <ReactQueryDevtools initialIsOpen={false} />
-          </PersistGate>
-        </Provider>
+        {/* <Provider store={store}> */}
+        {/* <PersistGate persistor={persistor}> */}
+        <AppProvider>
+          <HelmetProvider>
+            <ThemeProvider value={theme}>
+              <App />
+            </ThemeProvider>
+          </HelmetProvider>
+        </AppProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+        {/* </PersistGate> */}
+        {/* </Provider> */}
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>
