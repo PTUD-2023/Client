@@ -9,11 +9,6 @@ import Auth from './pages/Auth'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 
-function ProtectedRoute() {
-  const { isAuthenticated } = useContext(AppContext)
-  return isAuthenticated ? <Outlet /> : <Navigate to={routes.login} />
-}
-
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
   return isAuthenticated ? <Navigate to={routes.home} /> : <Outlet />
@@ -21,6 +16,16 @@ function RejectedRoute() {
 
 function useRouteElements() {
   const routeElements = useRoutes([
+    {
+      path: '',
+      element: <MainLayout />,
+      children: [
+        {
+          path: routes.home,
+          element: <Home />
+        }
+      ]
+    },
     {
       path: '',
       element: <RejectedRoute />,
@@ -31,31 +36,10 @@ function useRouteElements() {
         }
       ]
     },
-    {
-      path: '',
-      element: <ProtectedRoute />,
-      children: [
-        {
-          path: '',
-          element: <MainLayout />,
-          children: [
-            {
-              path: routes.home,
-              element: <Home />
-            }
-          ]
-        }
-      ]
-    },
+
     {
       path: '*',
-      element: <ProtectedRoute />,
-      children: [
-        {
-          path: '*',
-          element: <NotFound />
-        }
-      ]
+      element: <NotFound />
     }
   ])
 
