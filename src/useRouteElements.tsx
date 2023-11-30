@@ -7,6 +7,7 @@ import MainLayout from './layouts/MainLayout'
 /* Pages */
 import Auth from './pages/Auth'
 import Home from './pages/Home'
+import Contract from './pages/Contract'
 import NotFound from './pages/NotFound'
 
 function RejectedRoute() {
@@ -36,7 +37,16 @@ function useRouteElements() {
         }
       ]
     },
-
+    {
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: routes.contract,
+          element: <Contract />
+        }
+      ]
+    },
     {
       path: '*',
       element: <NotFound />
