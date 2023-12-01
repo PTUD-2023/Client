@@ -10,7 +10,7 @@ import routes from 'src/constants/routes'
 import { AppContext } from 'src/contexts/app.context'
 import { setUserAccountAction } from 'src/redux/actions/userAccountAction'
 import { toast } from 'react-toastify'
-import { isAxiosBadRequestError } from 'src/utils/utils'
+import { encodeBase64, isAxiosBadRequestError } from 'src/utils/utils'
 import { ErrorResponse } from 'src/types/utils.type'
 
 interface Props {
@@ -65,6 +65,9 @@ const Login = ({ setIsLoginTab }: Props) => {
             const formError = error.response?.data
             if (formError && formError.errorKey === 'EmailOrPasswordInValid') {
               toast.error(formError.message, { autoClose: 2000 })
+            }
+            if (formError && formError.errorKey === 'UnverifiedAccount') {
+              navigate('/confirm/' + encodeBase64(data.email))
             }
           }
         }
