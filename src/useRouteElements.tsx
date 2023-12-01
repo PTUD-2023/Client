@@ -8,6 +8,7 @@ import MainLayout from './layouts/MainLayout'
 import Auth from './pages/Auth'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
+import ConfirmAccount from './pages/ConfirmAccount'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -31,8 +32,12 @@ function useRouteElements() {
       element: <RejectedRoute />,
       children: [
         {
-          path: routes.login || routes.register,
+          path: routes.login,
           element: <Auth />
+        },
+        {
+          path: routes.confirmAccount,
+          element: <ConfirmAccount />
         }
       ]
     },
