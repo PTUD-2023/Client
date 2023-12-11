@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 import Header from "src/components/Header"
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 
 const Contract = () => {
   return (
   <div className="flex relative flex-col text-center items-center">
     <Header/>
-    <div className="inline-flex gap-2.5 bg-zinc-100 rounded-[25px] shadow border-2 border-blue-900 mt-[80px] relative flex-col text-center " >
+    <div className="inline-flex gap-2.5 bg-zinc-100 rounded-[25px] mb-[40px] shadow border-2 border-blue-900 mt-[80px] relative flex-col text-center " >
       <div className="text-center text-blue-900 text-4xl font-bold font-['Montserrat'] capitalize pt-[40px]">Contract</div>
       <div className="w-[400px] h-[70px] relative flex text-left ml-[40px] mr-[40px] gap-6">
         <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Name</div>
@@ -33,8 +37,8 @@ const Contract = () => {
       <div className="w-[400px] h-[70px] relative items-center flex text-left ml-[40px] mr-[40px] mt-[20px] mb-[70px] gap-6">
         <input type="checkbox"/>
         <div className="text-center">
-          <span className="text-neutral-900 text-sm font-medium font-['Montserrat']">I agree to the </span>
-          <span className="text-blue-900 text-sm font-normal font-['Montserrat']">contract terms</span>
+          <span className="text-neutral-900 font-medium font-['Montserrat']">I agree to the </span>
+          <Link to={'/terms'} className="text-blue-900 font-normal font-['Montserrat']">contract terms</Link>
         </div>
       </div>
       <div className="absolute right-[40px] bottom-[20px] w-44 h-[50px] px-16 py-4 bg-blue-900 rounded-[25px] shadow border-2 justify-center items-center gap-2.5 inline-flex">
@@ -45,6 +49,9 @@ const Contract = () => {
 
       {/* <Slider/> */}
     </div>
+    <Link to={'/support'} className="w-[50px] h-[50px] flex justify-center items-center absolute right-[60px] bottom-[40px] bg-blue-900 rounded-[50px]">
+        <FontAwesomeIcon icon={faQuestion} className="text-2xl text-white"/>
+    </Link>
   </div>
   );
 }

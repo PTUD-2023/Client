@@ -1,6 +1,9 @@
 import Header from "src/components/Header"
 import banner from 'src/assets/Images/banner.png'
 import Slider from "src/components/Slider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -24,6 +27,9 @@ const Home = () => {
     <div className="w-full flex mt-[20px] justify-center items-center flex bg-white">
       {/* <Slider/> */}
     </div>
+    <Link to={'/support'} className="w-[50px] h-[50px] flex justify-center items-center absolute right-[60px] bottom-[40px] bg-blue-900 rounded-[50px]">
+        <FontAwesomeIcon icon={faQuestion} className="text-2xl text-white"/>
+    </Link>
   </div>
   );
 }
