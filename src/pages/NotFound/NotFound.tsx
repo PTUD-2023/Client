@@ -11,7 +11,7 @@ function NotFound() {
           Sorry, the page you are looking for could not be found.
         </p>
         <Link
-          to={routes.home}
+          to={'/'}
           className='mt-6 flex items-center space-x-2 rounded bg-blue-600 px-4 py-2 text-gray-100 transition duration-150 hover:bg-blue-700'
           title='Return Home'
         >

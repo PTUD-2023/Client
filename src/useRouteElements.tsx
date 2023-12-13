@@ -7,8 +7,8 @@ import MainLayout from './layouts/MainLayout'
 /* Pages */
 import Auth from './pages/Auth'
 import Home from './pages/Home'
+import Contract from './pages/Contract'
 import NotFound from './pages/NotFound'
-import ConfirmAccount from './pages/ConfirmAccount'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -41,7 +41,56 @@ function useRouteElements() {
         }
       ]
     },
-
+    {
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: routes.contract,
+          element: <Contract />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: routes.request,
+          element: <Request />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: routes.support,
+          element: <Support />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: routes.terms,
+          element: <Terms />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: routes.profile,
+          element: <Profile />
+        }
+      ]
+    },
     {
       path: '*',
       element: <NotFound />
