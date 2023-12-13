@@ -9,6 +9,11 @@ import Auth from './pages/Auth'
 import Home from './pages/Home'
 import Contract from './pages/Contract'
 import NotFound from './pages/NotFound'
+import Support from './pages/Support'
+import Request from './pages/Request'
+import ConfirmAccount from './pages/ConfirmAccount'
+import Terms from './pages/Terms'
+import Profile from './pages/Profile'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
