@@ -27,6 +27,16 @@ export default withMT({
           marginRight: 'auto',
           paddingLeft: '1rem',
           paddingRight: '1rem'
+        },
+        '.arrow-hide': {
+          '&::-webkit-inner-spin-button': {
+            '-webkit-appearance': 'none',
+            'margin': 0
+          },
+          '&::-webkit-outer-spin-button': {
+            '-webkit-appearance': 'none',
+            'margin': 0
+          }
         }
       })
     })

@@ -4,16 +4,18 @@ import { useFormik } from 'formik'
 import authApi from 'src/apis/auth.api'
 import { User, userSchema } from 'src/types/user.type'
 import { ErrorResponse } from 'src/types/utils.type'
-import { isAxiosInternalServerError } from 'src/utils/utils'
+import { encodeBase64, isAxiosInternalServerError } from 'src/utils/utils'
 import { toast } from 'react-toastify'
 import { useState } from 'react'
 import CustomInput from '../CustomInput'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
   setIsLoginTab: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const Register = ({ setIsLoginTab }: Props) => {
+  const navigate = useNavigate()
   const [openPopoverFirstName, setOpenPopoverFirstName] = useState<boolean>(false)
   const [openPopoverLastName, setOpenPopoverLastName] = useState<boolean>(false)
   const [openPopoverEmail, setOpenPopoverEmail] = useState<boolean>(false)
@@ -25,8 +27,9 @@ export const Register = ({ setIsLoginTab }: Props) => {
   const signupMutation = useMutation({
     mutationFn: (body: Pick<User, 'email' | 'password' | 'lastName' | 'firstName' | 'confirmPassword' | 'phone'>) =>
       authApi.signUp(body),
-    onSuccess: () => {
-      toast.success('Sign up successfully', { autoClose: 2000 })
+    onSuccess: (res, vars) => {
+      toast.success(res.data.message, { autoClose: 2000 })
+      navigate('/confirm/' + encodeBase64(vars.email))
       setIsLoginTab(true)
     },
     onError: (error) => {

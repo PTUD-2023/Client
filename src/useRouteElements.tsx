@@ -9,10 +9,6 @@ import Auth from './pages/Auth'
 import Home from './pages/Home'
 import Contract from './pages/Contract'
 import NotFound from './pages/NotFound'
-import Request from './pages/Request'
-import Support from './pages/Support'
-import Terms from './pages/Terms'
-import Profile from './pages/Profile'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -36,8 +32,12 @@ function useRouteElements() {
       element: <RejectedRoute />,
       children: [
         {
-          path: routes.login || routes.register,
+          path: routes.login,
           element: <Auth />
+        },
+        {
+          path: routes.confirmAccount,
+          element: <ConfirmAccount />
         }
       ]
     },

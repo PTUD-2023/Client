@@ -65,6 +65,16 @@ export function decodeBase64(encodedString: string): string {
   }
 }
 
+export function encodeBase64(inputString: string): string {
+  try {
+    const encodedString = btoa(inputString)
+    return encodedString
+  } catch (error) {
+    console.error('Error encoding Base64:', error)
+    return '' // Trả về chuỗi trống nếu có lỗi
+  }
+}
+
 export const formatNumberToSocialStyle = (value: number) => {
   return new Intl.NumberFormat('en', {
     notation: 'compact',
