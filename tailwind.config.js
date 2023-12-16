@@ -13,6 +13,20 @@ export default withMT({
         header: '#2A2A2A',
         primary: '#EE4D2D'
       },
+      animation: {
+        'scale-up-center': 'scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite  both'
+      },
+      keyframes: {
+        'scale-up-center': {
+          '0%': {
+            transform: 'scaleX(1)',
+          },
+          '100%': {
+            transform: 'scaleX(1.2)',
+          }
+        }
+
+      }
     },
     fontFamily: {
       sans: ['SFProDisplay-Regular', 'Helvetica', 'Arial', 'sans-serif']
