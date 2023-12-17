@@ -1,60 +1,198 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faChevronUp } from '@fortawesome/free-solid-svg-icons'
-import './style.css'
-import avt from 'src/assets/avatar.jpg'
+import { useEffect, useState } from 'react'
 
-const HomeHeader = () => {
+import { Typography, Button, MenuHandler, MenuList, MenuItem, Menu, Avatar } from '@material-tailwind/react'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from 'src/redux/store'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import routes from 'src/constants/routes'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faChevronDown,
+  faHandshakeAngle,
+  faPenToSquare,
+  faRightFromBracket,
+  faUser
+} from '@fortawesome/free-solid-svg-icons'
+import logo from 'src/assets/Images/icon/icon-02-primary.png'
+import { clearUserAccountAction } from 'src/redux/actions/userAccountAction'
+import { clearLS } from 'src/utils/auth'
+import classNames from 'classnames'
+import InsuranceRegistrationForm from '../InsuranceRegistrationForm'
+
+function ProfileMenu() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const closeMenu = () => setIsMenuOpen(false)
+  const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const hanldeLogout = () => {
+    clearLS()
+    dispatch(clearUserAccountAction())
+    navigate(routes.home)
+  }
+
+  const profileMenuItems = [
+    {
+      label: userAccount.firstName + ' ' + userAccount.lastName,
+      icon: <FontAwesomeIcon icon={faUser} />
+    },
+    {
+      label: 'Edit Profile',
+      icon: <FontAwesomeIcon icon={faPenToSquare} />
+    },
+    {
+      label: 'Help',
+      icon: <FontAwesomeIcon icon={faHandshakeAngle} />
+    },
+    {
+      label: 'Sign Out',
+      icon: <FontAwesomeIcon icon={faRightFromBracket} className='text-red-500' />
+    }
+  ]
+
   return (
-    <div className='header__wrapper'>
-      <div className='header'>
-        <h1 className='header__title'>Health Insurance</h1>
-        <div className='header__line'>
-          <div className='header__line--dot-top'></div>
-          <div className='header__line--dot-bottom'></div>
-        </div>
-        <div className='header__search'>
-          <div className='header__search--icon-wrapper'>
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className='header__search--icon'
-              style={{ transform: 'rotate(90deg)' }}
-            />
+    <Menu open={isMenuOpen} handler={setIsMenuOpen} placement='bottom-end'>
+      <MenuHandler>
+        <Button
+          variant='text'
+          color='blue-gray'
+          className='flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto'
+        >
+          <Avatar
+            variant='circular'
+            size='sm'
+            alt='tania andrew'
+            className='border border-gray-900 p-0.5'
+            src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80'
+          />
+          <FontAwesomeIcon
+            icon={faChevronDown}
+            strokeWidth={2.5}
+            className={`h-3 w-3 transition-transform ${isMenuOpen ? 'rotate-180' : ''}`}
+          />
+        </Button>
+      </MenuHandler>
+      <MenuList className='p-1 z-[9999]'>
+        {profileMenuItems.map(({ label, icon }, key) => {
+          const isLastItem = key === profileMenuItems.length - 1
+          return (
+            <MenuItem
+              key={label}
+              onClick={isLastItem ? hanldeLogout : closeMenu}
+              className={`flex items-center gap-2 rounded ${
+                isLastItem ? 'hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10' : ''
+              }`}
+            >
+              {icon}
+              <Typography as='span' variant='small' className='font-normal' color={isLastItem ? 'red' : 'inherit'}>
+                {label}
+              </Typography>
+            </MenuItem>
+          )
+        })}
+      </MenuList>
+    </Menu>
+  )
+}
+
+function HomeHeader() {
+  const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => setOpen(!open)
+
+  useEffect(() => {
+    window.addEventListener('scroll', function () {
+      var navbar = document.querySelector('.sticky-top')
+
+      if (window.scrollY > 150) {
+        navbar.classList.remove('-top-[100px]')
+        navbar.classList.add('drop-shadow-md', 'top-0', 'sticky')
+      } else {
+        navbar.classList.remove('drop-shadow-md', 'top-0', 'sticky')
+        navbar.classList.add('-top-[100px]')
+      }
+    })
+  }, [])
+
+  return (
+    <div className='z-[9999] sticky-top transition-all duration-500'>
+      {/* <!-- Navbar Start --> */}
+      <nav className='flex justify-between relative flex-wrap items-center content-between py-3 px-4 bg-white text-black pl-10 pr-4'>
+        <a href='/' className='mr-4 text-lg whitespace-no-wrap flex items-center'>
+          <h1 className='m-0 flex items-center'>
+            <img className='max-w-full w-[60px] h-auto mr-3' src={logo} alt='' />
+            <span className='text-4xl font-semibold font-[Poppins,sans-serif]'>Insure</span>
+          </h1>
+        </a>
+        <button
+          type='button'
+          className='py-1 px-2 text-md leading-normal bg-transparent border border-transparent rounded xl:hidden'
+          data-bs-toggle='collapse'
+          data-bs-target='#navbarCollapse'
+        >
+          <span className='px-5 py-1 border border-gray-600 rounded '></span>
+        </button>
+        <div className='my-0' id='navbarCollapse'>
+          <div className='flex justify-center items-center gap-6 bg-[#F6F7FC] rounded px-6 py-3 lg:py-[10px]'>
+            <NavLink
+              to={routes.home}
+              className={({ isActive }) =>
+                classNames(
+                  'inline-block font-semibold',
+                  {
+                    'text-[#015FC9]': isActive
+                  },
+                  { 'text-[#696E77]': !isActive }
+                )
+              }
+            >
+              Trang chủ
+            </NavLink>
+            <a href='about.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
+              About Us
+            </a>
+            <a href='service.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
+              Our Services
+            </a>
+            <a href='contact.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
+              Contact Us
+            </a>
           </div>
-          <input type='text' className='header__search-input' placeholder='Search' />
         </div>
-        <ul className='header__nav'>
-          <li>
-            <a href='#home' className='header__nav--item'>
-              <i className='fa-solid fa-house'></i>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href='#contract' className='header__nav--item'>
-              <i className='fa-solid fa-user'></i>
-              Contract
-            </a>
-          </li>
-          <li>
-            <a href='#request' className='header__nav--item'>
-              <i className='fa-solid fa-earth-asia'></i>
-              Request
-            </a>
-          </li>
-        </ul>
-        <div className='header__user'>
-          <img src={avt} alt='Girl in a jacket' className='header__user--avt'></img>
-          <div className='header__user--info'>
-            <span className='header__user--greeting'>Welcome back,</span>
-            <span className='header__user--name'>Drennan</span>
+        {!userAccount.email ? (
+          <div className='flex items-center gap-x-1'>
+            <Link to={routes.login}>
+              <Button variant='text' color='blue' size='sm' className=' hidden lg:inline-block '>
+                <span className='py-2'>Đăng ký</span>
+              </Button>
+            </Link>
+            <Link to={routes.login}>
+              <Button variant='gradient' size='sm' color='blue' className='hidden lg:inline-block'>
+                <span>Đăng nhập</span>
+              </Button>
+            </Link>
           </div>
-          <FontAwesomeIcon icon={faChevronUp} className='header__user--icon' />
-        </div>
-      </div>
+        ) : (
+          <div className='flex gap-4'>
+            <button
+              onClick={handleOpen}
+              className='rounded-[10px] bg-[#015fc9] text-white hover:bg-[#0dd3f1] align-middle text-center border font-normal py-1 px-3 hidden lg:block'
+            >
+              Get A Quote
+            </button>
+            <ProfileMenu />
+          </div>
+        )}
+      </nav>
+      {/* <!-- Navbar End --> */}
+
+      {/* dialog form đăng ký bảo hiểm */}
+      <InsuranceRegistrationForm open={open} handleOpen={handleOpen} />
     </div>
   )
-  return <div>abc</div>
 }
 
 export default HomeHeader

@@ -14,7 +14,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons'
 const ConfirmAccount = () => {
   const { email } = useParams()
   let countdown: any // Đối tượng để theo dõi bộ đếm
-  let remainingTime: number = 10 // Thời gian còn lại trong giây
+  let remainingTime: number = 120 // Thời gian còn lại trong giây
   let counting = false // Trạng thái bộ đếm (đang đếm hay không)
   const navigate = useNavigate()
   const [isCounting, setIsCounting] = useState(false)

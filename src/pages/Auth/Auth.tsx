@@ -26,13 +26,13 @@ const Auth = () => {
                 onClick={handleChooseTab}
                 className={`text-[#0c2964] mt-3 ml-10 pb-[10px] ${isLoginTab ? 'border-b-2 border-[#2b6af1]' : ''}`}
               >
-                Sign In
+                Đăng nhập
               </button>
               <button
                 onClick={handleChooseTab}
                 className={`text-[#0c2964] mt-3 pb-[10px] ${!isLoginTab ? 'border-b-2 border-[#2b6af1]' : ''}`}
               >
-                Sign Up
+                Đăng ký
               </button>
             </div>
             <Card className='w-96'>

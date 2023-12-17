@@ -87,9 +87,9 @@ const Login = ({ setIsLoginTab }: Props) => {
           WELLCOME
         </Typography>
         <span className='text-[#0c2964]'>
-          New Here?{' '}
+          Chưa có tài khoản?{' '}
           <button className='text-[#3873f2]' onClick={() => setIsLoginTab(false)}>
-            Create Account
+            Tạo tài khoản
           </button>
         </span>
       </CardHeader>
@@ -113,7 +113,7 @@ const Login = ({ setIsLoginTab }: Props) => {
             value={formik.values.password}
             onChange={formik.handleChange}
             color='blue'
-            label='Password'
+            label='Mật khẩu'
             size='lg'
             crossOrigin={undefined}
             type='password'
@@ -121,7 +121,7 @@ const Login = ({ setIsLoginTab }: Props) => {
           />
         </form>
         <div className='flex justify-end mt-2'>
-          <span className='text-[13px] text-[#3873f2]'>Forgot password ?</span>
+          <span className='text-[13px] text-[#3873f2]'>Quên mật khẩu ?</span>
         </div>
       </CardBody>
       <CardFooter className='pt-0'>
@@ -134,7 +134,7 @@ const Login = ({ setIsLoginTab }: Props) => {
             className='text-lg leading-5'
             fullWidth
           >
-            Login
+            Đăng nhập
           </Button>
         )}
       </CardFooter>

@@ -77,7 +77,7 @@ export const Register = ({ setIsLoginTab }: Props) => {
         <Typography variant='h4' className='text-[#0c2964]'>
           WELLCOME
         </Typography>
-        <span className='text-[#0c2964]'>Register new account!</span>
+        <span className='text-[#0c2964]'>Tạo tài khoản mới!</span>
       </CardHeader>
       <CardBody className='mb-6'>
         <form id='form-register' onSubmit={formik.handleSubmit} className='flex flex-col gap-4 '>
@@ -101,7 +101,7 @@ export const Register = ({ setIsLoginTab }: Props) => {
             formik={formik}
             errorMsg={errorMsg}
             setErrorMsg={setErrorMsg}
-            label='First Name'
+            label='Họ'
             id='firstName'
             name='firstName'
           />
@@ -113,7 +113,7 @@ export const Register = ({ setIsLoginTab }: Props) => {
             formik={formik}
             errorMsg={errorMsg}
             setErrorMsg={setErrorMsg}
-            label='Last Name'
+            label='Tên'
             id='lastName'
             name='lastName'
           />
@@ -125,7 +125,7 @@ export const Register = ({ setIsLoginTab }: Props) => {
             formik={formik}
             errorMsg={errorMsg}
             setErrorMsg={setErrorMsg}
-            label='Phone'
+            label='Số điện thoại'
             id='my-phone'
             name='phone'
           />
@@ -137,7 +137,7 @@ export const Register = ({ setIsLoginTab }: Props) => {
             formik={formik}
             errorMsg={errorMsg}
             setErrorMsg={setErrorMsg}
-            label='Password'
+            label='Mật khẩu'
             id='my-password'
             name='password'
           />
@@ -149,7 +149,7 @@ export const Register = ({ setIsLoginTab }: Props) => {
             formik={formik}
             errorMsg={errorMsg}
             setErrorMsg={setErrorMsg}
-            label='Confirm password'
+            label='Nhập lại mật khẩu'
             id='my-confirm-password'
             name='confirmPassword'
           />
@@ -164,7 +164,7 @@ export const Register = ({ setIsLoginTab }: Props) => {
           className='text-lg leading-5'
           fullWidth
         >
-          Sign up
+          Đăng ký
         </Button>
       </CardFooter>
     </div>
