@@ -21,6 +21,7 @@ export const userSchema = yup.object({
   avatar: yup.object().shape({
     url: yup.string()
   }),
+  role: yup.string(),
   birthday: yup
     .date()
     .max(new Date(2019, 1, 1), 'Hình như bạn đã nhập sai thông tin. Hãy nhớ dùng ngày sinh thật của mình nhé.'),
@@ -31,5 +32,5 @@ export type User = yup.InferType<typeof userSchema>
 
 export type UserInfor = Pick<
   User,
-  'email' | 'lastName' | 'firstName' | 'avatar' | 'phone' | 'gender' | 'birthday' | 'timeCreated'
+  'email' | 'lastName' | 'firstName' | 'avatar' | 'phone' | 'gender' | 'role' | 'birthday' | 'timeCreated'
 >

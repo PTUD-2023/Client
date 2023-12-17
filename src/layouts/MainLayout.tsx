@@ -15,7 +15,7 @@ function MainLayout() {
       <div className='loading loading-center-body bg-gray-200'>
         <div className='loader-circle-8'>
           <svg className='circular' viewBox='25 25 50 50'>
-            <circle className='path' cx='50' cy='50' r='20' fill='none' stroke-width='5' stroke-miterlimit='10' />
+            <circle className='path' cx='50' cy='50' r='20' fill='none' strokeWidth='5' strokeMiterlimit='10' />
           </svg>
         </div>
       </div>

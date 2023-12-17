@@ -11,6 +11,7 @@ import AppProvider from './contexts/app.context'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { store, persistor } from './redux/store'
+import 'src/assets/css/app.css'
 
 // Tắt tự động fetch api khi focus vào window
 const queryClient = new QueryClient({

@@ -1,15 +1,21 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { decryptData, encryptData } from 'src/utils/utils'
+import darkModeReducer from './darkModeSlice'
+import colorSchemeReducer from './colorSchemeSlice'
+import sideMenuReducer from './sideMenuSlice'
+import simpleMenuReducer from './simpleMenuSlice'
+import topMenuReducer from './topMenuSlice'
 
 import userAccountReducer from './reducers/userAccountReducer'
 import tokenReducer from './reducers/tokenReducer'
 
 const persistConfig = {
   key: 'root', // Khóa lưu trạng thái
-  storage, // Sử dụng localStorage
+  storage, // Sử dụng localStorage,
+  whitelist: ['userAccountReducer', 'tokenReducer'],
   transforms: [
     {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,7 +36,12 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   userAccountReducer: userAccountReducer,
-  tokenReducer: tokenReducer
+  tokenReducer: tokenReducer,
+  darkMode: darkModeReducer,
+  colorScheme: colorSchemeReducer,
+  sideMenu: sideMenuReducer,
+  simpleMenu: simpleMenuReducer,
+  topMenu: topMenuReducer
 })
 
 const pRootReducer = persistReducer(persistConfig, rootReducer)
@@ -52,3 +63,5 @@ const store = configureStore<RootState>({
 
 const persistor = persistStore(store)
 export { store, persistor }
+export type AppDispatch = typeof store.dispatch
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>
