@@ -35,7 +35,11 @@ const Login = ({ setIsLoginTab }: Props) => {
       const profile = data.data
       dispatch(setUserAccountAction(profile))
       setIsAuthenticated(true)
-      navigate(routes.home)
+      if (profile.role === 'ROLE_ADMIN') {
+        navigate(routes.dashboard)
+      } else {
+        navigate(routes.home)
+      }
     },
     onError: (error) => {
       console.log(error)

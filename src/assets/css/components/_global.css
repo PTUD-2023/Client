@@ -1,6 +1,11 @@
 html {
   scroll-behavior: smooth;
-  background-color: theme("colors.primary");
+
+  .admin-html {
+    background-color: theme("colors.primary");
+  }
+
+  /* background-color: theme("colors.primary"); */
 
   &.dark {
     background-color: theme("colors.darkmode.800");

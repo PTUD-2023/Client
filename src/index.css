@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --primary: #015FC9;
+  --secondary: #0DD3F1;
+  --light: #F6F7FC;
+  --dark: #15233C;
+}
 
 
 body {
@@ -30,26 +33,6 @@ body {
 }
 
 /********** Template CSS **********/
-:root {
-  --primary: #015FC9;
-  --secondary: #0DD3F1;
-  --light: #F6F7FC;
-  --dark: #15233C;
-}
-
-/*** Spinner ***/
-#spinner {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .5s ease-out, visibility 0s linear .5s;
-  z-index: 99999;
-}
-
-#spinner.show {
-  transition: opacity .5s ease-out, visibility 0s linear 0s;
-  visibility: visible;
-  opacity: 1;
-}
 
 /*** Facts ***/
 @media (min-width: 992px) {

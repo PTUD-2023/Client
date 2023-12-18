@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound'
 import ConfirmAccount from './pages/ConfirmAccount'
 import AdminLayout from './layouts/AdminLayout'
 import Dashboard from './pages/Admin/Dashboard'
+import FormManagement from './pages/Admin/FormManagement'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -50,6 +51,10 @@ function useRouteElements() {
         {
           path: routes.dashboard,
           element: <Dashboard />
+        },
+        {
+          path: routes.formManagement,
+          element: <FormManagement />
         }
       ]
     },

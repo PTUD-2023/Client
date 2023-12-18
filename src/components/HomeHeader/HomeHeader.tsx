@@ -26,7 +26,6 @@ function ProfileMenu() {
   const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
   const hanldeLogout = () => {
     clearLS()
     dispatch(clearUserAccountAction())
