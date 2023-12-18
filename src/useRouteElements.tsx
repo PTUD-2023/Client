@@ -11,6 +11,12 @@ import NotFound from './pages/NotFound'
 import ConfirmAccount from './pages/ConfirmAccount'
 import AdminLayout from './layouts/AdminLayout'
 import Dashboard from './pages/Admin/Dashboard'
+import Profile from './pages/Profile'
+import Request from './pages/Request'
+import Terms from './pages/Terms'
+import Contract from './pages/Contract'
+import InsuranceRegistrationForm from './components/InsuranceRegistrationForm'
+import HomeHeader from './components/HomeHeader'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -53,7 +59,56 @@ function useRouteElements() {
         }
       ]
     },
-
+    {
+      path: '',
+      element: <Home/>,
+      children: [
+        {
+          path: routes.home,
+          element: <Home />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <Profile/>,
+      children: [
+        {
+          path: routes.profile,
+          element: <Profile />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <Request/>,
+      children: [
+        {
+          path: routes.request,
+          element: <Request />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <Terms/>,
+      children: [
+        {
+          path: routes.terms,
+          element: <Terms />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <Contract/>,
+      children: [
+        {
+          path: routes.contract,
+          element: <Contract />
+        }
+      ]
+    },
     {
       path: '*',
       element: <NotFound />
