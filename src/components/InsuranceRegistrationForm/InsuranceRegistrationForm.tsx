@@ -47,7 +47,7 @@ const InsuranceRegistrationForm = ({ open, handleOpen }: Props) => {
         <div className=''>
           <div className='flex items-center h-[60px] border-b border-gray-300'>
             <div className='w-full flex justify-center'>
-              <span className='text-[20px] text-[#050505] font-bold'>Insured person information</span>
+              <span className='text-[20px] text-[#050505] font-bold'>Thông tin người mua bảo hiểm</span>
             </div>
             <div className='flex justify-end absolute w-full -ml-4'>
               <IconButton
@@ -67,14 +67,14 @@ const InsuranceRegistrationForm = ({ open, handleOpen }: Props) => {
       </DialogHeader>
       <DialogBody className='flex flex-col gap-4'>
         <form id='insurance-registration-form' onSubmit={formik.handleSubmit}>
-          <div className='flex gap-2 justify-between items-center'>
+          <div className='flex gap-2 justify-between items-center mb-[10px]'>
             <div className='w-72'>
-              <Select label='Relationship with buyer' size='lg' color='blue'>
-                <Option>Self</Option>
-                <Option>Parent</Option>
-                <Option>Wife/husband</Option>
-                <Option>Brother/sister</Option>
-                <Option>Child</Option>
+              <Select label='Mối quan hệ với người mua' size='lg' color='blue'>
+                <Option>Bản thân</Option>
+                <Option>Cha mẹ</Option>
+                <Option>Vợ/chồng</Option>
+                <Option>Anh/chị</Option>
+                <Option>Con</Option>
               </Select>
             </div>
             <div className='w-72'>
@@ -83,37 +83,39 @@ const InsuranceRegistrationForm = ({ open, handleOpen }: Props) => {
                 name='insurance-registration-form-name'
                 value={formik.values.Name}
                 onChange={formik.handleChange}
-                label='Name'
+                label='Tên'
+                size='lg' 
+                variant="outlined"
                 crossOrigin={undefined}
                 color='blue'
               />
             </div>
-            <div className='w-72'>
-              <Input label='Email' crossOrigin={undefined} color='blue' />
+            <div className='w-72 '>
+              <Input label='Email' size='lg' crossOrigin={undefined} color='blue' />
             </div>
           </div>
           <div className='flex gap-2 justify-between items-center'>
-            <div className='w-72'>
-              <Select label='Sex' size='lg' color='blue'>
-                <Option>Male</Option>
-                <Option>Female</Option>
+            <div className='w-72 '>
+              <Select label='Giới tính' size='lg' color='blue'>
+                <Option>Nam</Option>
+                <Option>Nữ</Option>
               </Select>
             </div>
-            <div className='w-72'>
-              <Input label='Phone' crossOrigin={undefined} color='blue' />
+            <div className='w-72 '>
+              <Input label='Điện thoại' size='lg' crossOrigin={undefined} color='blue' />
             </div>
-            <div className='w-72'>
-              <Input label='ID card' crossOrigin={undefined} color='blue' />
+            <div className='w-72 '>
+              <Input label='CMND/CCCD' size='lg' crossOrigin={undefined} color='blue' />
             </div>
           </div>
         </form>
       </DialogBody>
       <DialogFooter>
         <Button variant='text' color='red' onClick={handleOpen} className='mr-1'>
-          <span>Cancel</span>
+          <span>Hủy</span>
         </Button>
         <Button form='insurance-registration-form' variant='gradient' color='green' size='md' type='submit'>
-          <span>Confirm</span>
+          <span>Xác nhận</span>
         </Button>
       </DialogFooter>
     </Dialog>
