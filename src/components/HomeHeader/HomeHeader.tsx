@@ -6,13 +6,7 @@ import { RootState } from 'src/redux/store'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import routes from 'src/constants/routes'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faChevronDown,
-  faHandshakeAngle,
-  faPenToSquare,
-  faRightFromBracket,
-  faUser
-} from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons'
 import logo from 'src/assets/Images/icon/icon-02-primary.png'
 import { clearUserAccountAction } from 'src/redux/actions/userAccountAction'
 import { clearLS } from 'src/utils/auth'
@@ -38,15 +32,7 @@ function ProfileMenu() {
       icon: <FontAwesomeIcon icon={faUser} />
     },
     {
-      label: 'Edit Profile',
-      icon: <FontAwesomeIcon icon={faPenToSquare} />
-    },
-    {
-      label: 'Help',
-      icon: <FontAwesomeIcon icon={faHandshakeAngle} />
-    },
-    {
-      label: 'Sign Out',
+      label: 'Đăng xuất',
       icon: <FontAwesomeIcon icon={faRightFromBracket} className='text-red-500' />
     }
   ]
@@ -81,11 +67,11 @@ function ProfileMenu() {
               key={label}
               onClick={isLastItem ? hanldeLogout : closeMenu}
               className={`flex items-center gap-2 rounded ${
-                isLastItem ? 'hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10' : ''
+                isLastItem ? 'hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10' : 'text-black'
               }`}
             >
               {icon}
-              <Typography as='span' variant='small' className='font-normal' color={isLastItem ? 'red' : 'inherit'}>
+              <Typography as='span' variant='small' className='font-semibold' color={isLastItem ? 'red' : 'inherit'}>
                 {label}
               </Typography>
             </MenuItem>
@@ -97,19 +83,6 @@ function ProfileMenu() {
 }
 
 function HomeHeader() {
-  const [lastSegment, setLastSegment] = useState('')
-
-  useEffect(() => {
-    // Lấy đường dẫn hiện tại
-    const currentPath = window.location.pathname
-
-    // Xử lý chuỗi sau dấu /
-    const newLastSegment = currentPath.substring(currentPath.lastIndexOf('/') + 1)
-
-    // Cập nhật state với giá trị mới
-    setLastSegment(newLastSegment)
-  }, [])
-
   const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
   const [open, setOpen] = useState(false)
 
@@ -133,10 +106,10 @@ function HomeHeader() {
     <div className='z-[9999] sticky-top transition-all duration-500'>
       {/* <!-- Navbar Start --> */}
       <nav className='flex justify-between relative flex-wrap items-center content-between py-3 px-4 bg-white text-black pl-10 pr-4'>
-        <a href='/' className='mr-4 text-lg whitespace-no-wrap flex items-center'>
+        <a href={routes.home} className='mr-4 text-lg whitespace-no-wrap flex items-center'>
           <h1 className='m-0 flex items-center'>
             <img className='max-w-full w-[60px] h-auto mr-3' src={logo} alt='' />
-            <span className='text-4xl font-semibold font-[Poppins,sans-serif]'>Health Insurance</span>
+            <span className='text-4xl font-semibold font-[Poppins,sans-serif]'>Insure</span>
           </h1>
         </a>
         <button
@@ -151,24 +124,63 @@ function HomeHeader() {
           <div className='flex justify-center items-center gap-6 bg-[#F6F7FC] rounded px-6 py-3 lg:py-[10px]'>
             <NavLink
               to={routes.home}
-              className={`inline-block font-semibold hover:text-[#015FC9] ${
-                lastSegment === '' ? 'text-black' : 'text-[#696E77]'
-              }`}
+              className={({ isActive }) =>
+                classNames(
+                  'inline-block font-semibold hover:text-[#015FC9]',
+                  {
+                    'text-[#015FC9]': isActive
+                  },
+                  { 'text-[#696E77]': !isActive }
+                )
+              }
             >
               Trang chủ
             </NavLink>
-            <a href='about.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
+            <NavLink
+              to={routes.terms}
+              className={({ isActive }) =>
+                classNames(
+                  'inline-block font-semibold hover:text-[#015FC9]',
+                  {
+                    'text-[#015FC9]': isActive
+                  },
+                  { 'text-[#696E77]': !isActive }
+                )
+              }
+            >
               Giới thiệu
-            </a>
-            <a href='service.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
+            </NavLink>
+            <NavLink
+              to={routes.terms}
+              className={({ isActive }) =>
+                classNames(
+                  'inline-block font-semibold hover:text-[#015FC9]',
+                  {
+                    'text-[#015FC9]': isActive
+                  },
+                  { 'text-[#696E77]': !isActive }
+                )
+              }
+            >
               Dịch vụ
-            </a>
-            <a href='contact.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
-              Liên hệ
-            </a>
+            </NavLink>
+            <NavLink
+              to={routes.terms}
+              className={({ isActive }) =>
+                classNames(
+                  'inline-block font-semibold hover:text-[#015FC9]',
+                  {
+                    'text-[#015FC9]': isActive
+                  },
+                  { 'text-[#696E77]': !isActive }
+                )
+              }
+            >
+              Yêu cầu
+            </NavLink>
           </div>
         </div>
-        {userAccount.email ? (
+        {!userAccount.email ? (
           <div className='flex items-center gap-x-1'>
             <Link to={routes.login}>
               <Button variant='text' color='blue' size='sm' className=' hidden lg:inline-block '>
