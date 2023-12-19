@@ -97,6 +97,19 @@ function ProfileMenu() {
 }
 
 function HomeHeader() {
+  const [lastSegment, setLastSegment] = useState('')
+
+  useEffect(() => {
+    // Lấy đường dẫn hiện tại
+    const currentPath = window.location.pathname
+
+    // Xử lý chuỗi sau dấu /
+    const newLastSegment = currentPath.substring(currentPath.lastIndexOf('/') + 1)
+
+    // Cập nhật state với giá trị mới
+    setLastSegment(newLastSegment)
+  }, [])
+
   const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
   const [open, setOpen] = useState(false)
 
@@ -123,7 +136,7 @@ function HomeHeader() {
         <a href='/' className='mr-4 text-lg whitespace-no-wrap flex items-center'>
           <h1 className='m-0 flex items-center'>
             <img className='max-w-full w-[60px] h-auto mr-3' src={logo} alt='' />
-            <span className='text-4xl font-semibold font-[Poppins,sans-serif]'>Insure</span>
+            <span className='text-4xl font-semibold font-[Poppins,sans-serif]'>Health Insurance</span>
           </h1>
         </a>
         <button
@@ -138,15 +151,9 @@ function HomeHeader() {
           <div className='flex justify-center items-center gap-6 bg-[#F6F7FC] rounded px-6 py-3 lg:py-[10px]'>
             <NavLink
               to={routes.home}
-              className={({ isActive }) =>
-                classNames(
-                  'inline-block font-semibold',
-                  {
-                    'text-[#015FC9]': isActive
-                  },
-                  { 'text-[#696E77]': !isActive }
-                )
-              }
+              className={`inline-block font-semibold hover:text-[#015FC9] ${
+                lastSegment === '' ? 'text-black' : 'text-[#696E77]'
+              }`}
             >
               Trang chủ
             </NavLink>
@@ -161,7 +168,7 @@ function HomeHeader() {
             </a>
           </div>
         </div>
-        {!userAccount.email ? (
+        {userAccount.email ? (
           <div className='flex items-center gap-x-1'>
             <Link to={routes.login}>
               <Button variant='text' color='blue' size='sm' className=' hidden lg:inline-block '>

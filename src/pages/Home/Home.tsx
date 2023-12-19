@@ -2,10 +2,11 @@ import { faFacebookF, faLinkedinIn, faTwitter, faYoutube } from '@fortawesome/fr
 import { faArrowUp, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Carousel } from '@material-tailwind/react'
-import { useEffect, useState } from 'react'
+import React, { useEffect,useState } from 'react'
 import FloatingInput from 'src/components/FloatingInput'
 import WOW from 'wow.js'
 import 'animate.css' // Import các hiệu ứng CSS từ animate.css
+import InsuranceRegistrationForm from 'src/components/InsuranceRegistrationForm'
 
 const teamMemberList: { url: string; name: string }[] = [
   {
@@ -67,7 +68,9 @@ const serviceList: { url: string; name: string; description: string }[] = [
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const [open, setOpen] = useState(false)
 
+  const handleOpen = () => setOpen(!open)
   useEffect(() => {
     const wow = new WOW()
     wow.init()
@@ -693,6 +696,7 @@ const Home = () => {
       >
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
+      <InsuranceRegistrationForm open={open} handleOpen={handleOpen} />
     </>
   )
 }
