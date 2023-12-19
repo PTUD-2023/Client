@@ -6,13 +6,38 @@ import Button from 'src/components/AdminCustomButton'
 import Pagination from 'src/components/Pagination'
 import { FormInput, FormSelect } from 'src/components/Form'
 import Lucide from 'src/components/Lucide'
-import Tippy from 'src/components/Tippy'
+// import Tippy from 'src/components/Tippy'
 import { Dialog } from 'src/components/Headless'
 import Table from 'src/components/Table'
+import { formatCurrentDateTime } from 'src/utils/utils'
+import RegFormTableRow from 'src/components/RegFormTableRow'
+
+function getRandomEmail() {
+  const emailProviders = ['gmail.com', 'yahoo.com', 'outlook.com', 'example.com']
+  const randomProvider = emailProviders[Math.floor(Math.random() * emailProviders.length)]
+  return `user${Math.floor(Math.random() * 1000)}@${randomProvider}`
+}
+
+function generateRandomData() {
+  const typesOfInsurance = ['Cá nhân', 'Nhóm']
+  const insurancePackages = ['Gói A', 'Gói B', 'Gói C']
+  const statusList = ['approved', 'refused', 'pending']
+
+  return {
+    id: Math.floor(Math.random() * 1000),
+    name: fakerData[0].users[0].name,
+    email: getRandomEmail(),
+    type: typesOfInsurance[Math.floor(Math.random() * typesOfInsurance.length)],
+    plan: insurancePackages[Math.floor(Math.random() * insurancePackages.length)],
+    date: formatCurrentDateTime(),
+    status: statusList[Math.floor(Math.random() * statusList.length)]
+  }
+}
 
 function Main() {
   const [deleteConfirmationModal, setDeleteConfirmationModal] = useState(false)
   const deleteButtonRef = useRef(null)
+  const regList = Array.from({ length: 10 }, generateRandomData)
 
   return (
     <>
@@ -37,87 +62,79 @@ function Main() {
           <Table className='border-spacing-y-[10px] border-separate -mt-2'>
             <Table.Thead>
               <Table.Tr>
-                <Table.Th className='border-b-0 whitespace-nowrap'>STT</Table.Th>
+                <Table.Th className='border-b-0 whitespace-nowrap'>ID</Table.Th>
                 <Table.Th className='border-b-0 whitespace-nowrap'>Tên khách hàng</Table.Th>
+                <Table.Th className='border-b-0 whitespace-nowrap'>Email</Table.Th>
                 <Table.Th className='border-b-0 whitespace-nowrap'>Loại bảo hiểm</Table.Th>
-                {/* <Table.Th className='text-center border-b-0 whitespace-nowrap'>STOCK</Table.Th> */}
-                <Table.Th className='text-center border-b-0 whitespace-nowrap'>STATUS</Table.Th>
-                <Table.Th className='text-center border-b-0 whitespace-nowrap'>ACTIONS</Table.Th>
+                <Table.Th className='border-b-0 whitespace-nowrap'>Gói bảo hiểm</Table.Th>
+                <Table.Th className='border-b-0 whitespace-nowrap'>Ngày</Table.Th>
+                <Table.Th className='text-center border-b-0 whitespace-nowrap'>Trạng thái</Table.Th>
+                <Table.Th className='text-center border-b-0 whitespace-nowrap'></Table.Th>
               </Table.Tr>
             </Table.Thead>
             <Table.Tbody>
-              {_.take(fakerData, 9).map((faker, fakerKey) => (
-                <Table.Tr key={fakerKey} className='intro-x'>
-                  <Table.Td className='first:rounded-l-md last:rounded-r-md w-40 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
-                    <div className='flex'>
-                      <div className='w-10 h-10 image-fit zoom-in'>
-                        <Tippy
-                          as='img'
-                          alt='Midone Tailwind HTML Admin Template'
-                          className='rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]'
-                          src={faker.images[0]}
-                          content={`Uploaded at ${faker.dates[0]}`}
-                        />
-                      </div>
-                      <div className='w-10 h-10 -ml-5 image-fit zoom-in'>
-                        <Tippy
-                          as='img'
-                          alt='Midone Tailwind HTML Admin Template'
-                          className='rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]'
-                          src={faker.images[1]}
-                          content={`Uploaded at ${faker.dates[1]}`}
-                        />
-                      </div>
-                      <div className='w-10 h-10 -ml-5 image-fit zoom-in'>
-                        <Tippy
-                          as='img'
-                          alt='Midone Tailwind HTML Admin Template'
-                          className='rounded-full shadow-[0px_0px_0px_2px_#fff,_1px_1px_5px_rgba(0,0,0,0.32)] dark:shadow-[0px_0px_0px_2px_#3f4865,_1px_1px_5px_rgba(0,0,0,0.32)]'
-                          src={faker.images[2]}
-                          content={`Uploaded at ${faker.dates[2]}`}
-                        />
-                      </div>
-                    </div>
-                  </Table.Td>
-                  <Table.Td className='first:rounded-l-md last:rounded-r-md bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
-                    <a href='' className='font-medium whitespace-nowrap'>
-                      {faker.products[0].name}
-                    </a>
-                    <div className='text-slate-500 text-xs whitespace-nowrap mt-0.5'>{faker.products[0].category}</div>
-                  </Table.Td>
-                  <Table.Td className='first:rounded-l-md last:rounded-r-md text-center bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
-                    {faker.stocks[0]}
-                  </Table.Td>
-                  <Table.Td className='first:rounded-l-md last:rounded-r-md w-40 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
-                    <div
-                      className={clsx([
-                        'flex items-center justify-center',
-                        { 'text-success': faker.trueFalse[0] },
-                        { 'text-danger': !faker.trueFalse[0] }
-                      ])}
-                    >
-                      <Lucide icon='CheckSquare' className='w-4 h-4 mr-2' />
-                      {faker.trueFalse[0] ? 'Active' : 'Inactive'}
-                    </div>
-                  </Table.Td>
-                  <Table.Td className='first:rounded-l-md last:rounded-r-md w-56 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b] py-0 relative before:block before:w-px before:h-8 before:bg-slate-200 before:absolute before:left-0 before:inset-y-0 before:my-auto before:dark:bg-darkmode-400'>
-                    <div className='flex items-center justify-center'>
-                      <a className='flex items-center mr-3' href='#'>
-                        <Lucide icon='CheckSquare' className='w-4 h-4 mr-1' /> Edit
-                      </a>
-                      <a
-                        className='flex items-center text-danger'
-                        href='#'
-                        onClick={(event) => {
-                          event.preventDefault()
-                          setDeleteConfirmationModal(true)
-                        }}
-                      >
-                        <Lucide icon='Trash2' className='w-4 h-4 mr-1' /> Delete
-                      </a>
-                    </div>
-                  </Table.Td>
-                </Table.Tr>
+              {regList.map((faker, fakerKey) => (
+                // <Table.Tr key={fakerKey} className='intro-x'>
+                //   <Table.Td className='first:rounded-l-md last:rounded-r-md w-10 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
+                //     <div className='flex'>{fakerKey + 1}</div>
+                //   </Table.Td>
+                //   <Table.Td className='first:rounded-l-md last:rounded-r-md bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
+                //     <a href='' className='font-medium whitespace-nowrap'>
+                //       {fakerData[fakerKey].users[0].name}
+                //     </a>
+                //     <div className='text-slate-500 text-xs whitespace-nowrap mt-0.5'>
+                //       {Math.floor(Math.random() * (33 - 18 + 1) + 18)} tuổi
+                //     </div>
+                //   </Table.Td>
+                //   <Table.Td className='first:rounded-l-md last:rounded-r-md w-10 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
+                //     <div className='flex'>{faker.email}</div>
+                //   </Table.Td>
+                //   <Table.Td className='first:rounded-l-md last:rounded-r-md bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
+                //     {faker.type}
+                //   </Table.Td>
+                //   <Table.Td className='first:rounded-l-md last:rounded-r-md w-10 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
+                //     <div className='flex'>{faker.plan}</div>
+                //   </Table.Td>
+                //   <Table.Td className='first:rounded-l-md last:rounded-r-md w-10 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
+                //     <div className='flex'>{faker.date}</div>
+                //   </Table.Td>
+                //   <Table.Td className='first:rounded-l-md last:rounded-r-md w-40 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
+                //     <div
+                //       className={clsx([
+                //         'flex items-center justify-center',
+                //         { 'text-warning': faker.status === 'pending' },
+                //         { 'text-danger': faker.status === 'refused' },
+                //         { 'text-success': faker.status === 'approved' }
+                //       ])}
+                //     >
+                //       <Lucide
+                //         icon={faker.status === 'pending' ? 'Clock' : faker.status === 'approved' ? 'Check' : 'X'}
+                //         className='w-4 h-4 mr-2'
+                //       />
+                //       {faker.status === 'pending' ? 'Chờ duyệt' : faker.status === 'approved' ? 'Đã duyệt' : 'Từ chối'}
+                //     </div>
+                //   </Table.Td>
+                //   <Table.Td className='first:rounded-l-md last:rounded-r-md w-60 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b] py-0 relative before:block before:w-px before:h-8 before:bg-slate-200 before:absolute before:left-0 before:inset-y-0 before:my-auto before:dark:bg-darkmode-400'>
+                //     <div className='flex items-center justify-center'>
+                //       <button className='flex items-center mr-3'>
+                //         <Lucide icon='Eye' className='w-4 h-4 mr-1' /> Xem
+                //       </button>
+                //       <button className='flex items-center mr-3'>
+                //         <Lucide icon='Check' className='w-4 h-4 mr-1' /> Duyệt
+                //       </button>
+                //       <button
+                //         className='flex items-center text-danger'
+                //         onClick={(event) => {
+                //           event.preventDefault()
+                //           setDeleteConfirmationModal(true)
+                //         }}
+                //       >
+                //         <Lucide icon='X' className='w-4 h-4 mr-1' /> Từ chối
+                //       </button>
+                //     </div>
+                //   </Table.Td>
+                // </Table.Tr>
+                <RegFormTableRow faker={faker} fakerKey={fakerKey} />
               ))}
             </Table.Tbody>
           </Table>

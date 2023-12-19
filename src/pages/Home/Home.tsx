@@ -74,10 +74,12 @@ const Home = () => {
     window.addEventListener('scroll', function () {
       var backToTop = document.querySelector('.back-to-top')
 
-      if (window.scrollY > 300) {
-        backToTop.classList.add('drop-shadow-md', 'top-0', 'sticky')
-      } else {
-        backToTop.classList.remove('drop-shadow-md', 'top-0', 'sticky')
+      if (backToTop) {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('drop-shadow-md', 'top-0', 'sticky')
+        } else {
+          backToTop.classList.remove('drop-shadow-md', 'top-0', 'sticky')
+        }
       }
     })
   }, [])
@@ -207,8 +209,8 @@ const Home = () => {
                 >
                   <div className='flex flex-col leading-5 font-[Poppins,sans-serif] font-semibold justify-center text-center bg-[#015fc9] rounded-[10px] h-full p-6'>
                     <h1 className='text-white mb-0'>25</h1>
-                    <h2 className='text-white'>Years</h2>
-                    <h5 className='text-white mb-0'>Experience</h5>
+                    <h2 className='text-white'>Năm</h2>
+                    <h5 className='text-white mb-0'>Kinh nghiệm</h5>
                   </div>
                 </div>
               </div>
@@ -227,24 +229,24 @@ const Home = () => {
                   <div className='sm:w-1/2 pr-4 pl-4'>
                     <div className='flex items-center'>
                       <img className='flex-shrink-0 me-3' src='src/assets/Images/icon/icon-04-primary.png' alt='' />
-                      <h5 className=' font-[Poppins,sans-serif] font-bold'>Flexible Insurance Plans</h5>
+                      <h5 className=' font-[Poppins,sans-serif] font-bold'>Gói bảo hiểm linh hoạt</h5>
                     </div>
                   </div>
                   <div className='sm:w-1/2 pr-4 pl-4'>
                     <div className='flex items-center'>
                       <img className='flex-shrink-0 me-3' src='src/assets/Images/icon/icon-03-primary.png' alt='' />
-                      <h5 className='font-[Poppins,sans-serif] font-bold'>Money Back Guarantee</h5>
+                      <h5 className='font-[Poppins,sans-serif] font-bold'>Cam kết hoàn lại tiền</h5>
                     </div>
                   </div>
                 </div>
                 <p className='mb-4 text-[#696e77]'>
-                  t was time to get rid of the vines. Oh God, let it be God's pain. Some backyard will be backyard and
-                  them. There was a great deal of pain and suffering, but it was a great deal of pain
+                  Với chi phí chỉ từ 1.000đ/ngày, khách hàng nhận mức quyền lợi bảo vệ lên đến 2 tỷ đồng, chi phí chăm
+                  sóc sức khỏe lên đến 600 triệu đồng/năm.
                 </p>
                 <div className='border-t border-gray-400 mt-4 pt-4'>
                   <div className='flex items-center'>
                     <img className='flex-shrink-0 rounded-full me-3' src='src/assets/Images/profile.jpg' alt='' />
-                    <h5 className='font-[Poppins,sans-serif] font-bold'>Call Us: +012 345 6789</h5>
+                    <h5 className='font-[Poppins,sans-serif] font-bold'>Liên hệ: +012 345 6789</h5>
                   </div>
                 </div>
               </div>
@@ -265,14 +267,14 @@ const Home = () => {
               <div className='w-full h-full bg-[rgba(1,95,201,0.9)] pl-[120px] pr-2'>
                 <div className='h-full w-full px-4 lg:ps-0 flex flex-col justify-center'>
                   <h1 className='text-white mb-4 font-[Poppins,sans-serif] font-bold text-start'>
-                    For Individuals And Organisations
+                    Dành cho cá nhân và tổ chức
                   </h1>
                   <p className='text-gray-100 mb-5'>
-                    It was time to get rid of the vines. Oh God, let it be God's pain. Some backyard will be backyard
-                    and them. There was a great deal of pain and suffering, but it was a great deal of pain
+                    VBI CARE là dòng sản phẩm với mức bảo vệ lên tới 2 tỷ đồng với những quyền lợi mở rộng bao gồm ốm
+                    đau, bệnh tật, tai nạn, chi phí nằm điều trị nội trú, ngoại trú, nha khoa và thai sản.
                   </p>
                   <button className='px-12 py-4 rounded-[10px] text-center font-[ui-sans-serif] text-[17px]  bg-[#0dd3f1] text-white hover:bg-[#015fc9] mt-10 self-start'>
-                    More Details
+                    Xem chi tiết
                   </button>
                 </div>
               </div>
@@ -290,7 +292,7 @@ const Home = () => {
                     >
                       1234
                     </h1>
-                    <p className=' text-[#015fc9] font-[ui-sans-serif] text-[23px] ml-2'>Happy Clients</p>
+                    <p className=' text-[#015fc9] font-[ui-sans-serif] text-[23px] ml-2'>Khách hàng</p>
                   </div>
                   <div className=''>
                     <h1
@@ -299,7 +301,7 @@ const Home = () => {
                     >
                       1234
                     </h1>
-                    <p className=' text-[#015fc9] font-[ui-sans-serif] text-[23px] ml-2'>Projects Succeed</p>
+                    <p className=' text-[#015fc9] font-[ui-sans-serif] text-[23px] ml-2'>Hợp đồng</p>
                   </div>
                   <div className=''>
                     <h1
@@ -308,7 +310,7 @@ const Home = () => {
                     >
                       1234
                     </h1>
-                    <p className=' text-[#015fc9] font-[ui-sans-serif] text-[23px] ml-2'>Awards Achieved</p>
+                    <p className=' text-[#015fc9] font-[ui-sans-serif] text-[23px] ml-2'>Thành tựu</p>
                   </div>
                   <div className=''>
                     <h1
@@ -317,7 +319,7 @@ const Home = () => {
                     >
                       1234
                     </h1>
-                    <p className=' text-[#015fc9] font-[ui-sans-serif] text-[23px] ml-2'>Team Members</p>
+                    <p className=' text-[#015fc9] font-[ui-sans-serif] text-[23px] ml-2'>Đội ngũ</p>
                   </div>
                 </div>
               </div>
@@ -333,11 +335,11 @@ const Home = () => {
           <div className='flex flex-wrap h-full'>
             <div className='lg:w-1/2 flex flex-col px-4 wow animate__animated animate__fadeInUp' data-wow-delay='0.1s'>
               <h1 className='text-[40px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold mb-5'>
-                Few Reasons Why People Choosing Us!
+                Một số lý do khiến mọi người chọn chúng tôi!
               </h1>
               <p className='text-[#696e77] mb-4 mt-10'>
-                It was time to get rid of the vines. Oh God, let it be God's pain. Some backyard will be backyard and
-                them. There was a great deal of pain and suffering, but it was a great deal of pain
+                VBI CARE là dòng sản phẩm với mức bảo vệ lên tới 2 tỷ đồng với những quyền lợi mở rộng bao gồm ốm đau,
+                bệnh tật, tai nạn, chi phí nằm điều trị nội trú, ngoại trú, nha khoa và thai sản.
               </p>
               <div className='flex flex-col gap-4 mt-8'>
                 <div className='flex gap-4'>
@@ -345,7 +347,7 @@ const Home = () => {
                     <div className='bg-gray-200/70 rounded-[14px] h-full p-4'>
                       <div className='bg-white flex flex-col justify-center text-center rounded-[10px] h-full py-4 px-3'>
                         <img className='self-center mb-3' src='src/assets/Images/icon/icon-06-primary.png' alt='' />
-                        <h5 className='mb-0 font-[Poppins,sans-serif] font-bold'>Easy Process</h5>
+                        <h5 className='mb-0 font-[Poppins,sans-serif] font-bold'>Quy trình đơn giản</h5>
                       </div>
                     </div>
                   </div>
@@ -353,7 +355,7 @@ const Home = () => {
                     <div className='bg-gray-200/70 rounded-[14px] h-ful p-4'>
                       <div className='bg-white flex flex-col justify-center text-center rounded-[10px] h-full py-4 px-3'>
                         <img className='self-center mb-3' src='src/assets/Images/icon/icon-03-primary.png' alt='' />
-                        <h5 className='mb-0 font-[Poppins,sans-serif] font-bold'>Short Wait Time</h5>
+                        <h5 className='mb-0 font-[Poppins,sans-serif] font-bold'>Thời gian chờ ngắn</h5>
                       </div>
                     </div>
                   </div>
@@ -363,7 +365,7 @@ const Home = () => {
                     <div className='bg-gray-200/70 rounded-[14px] h-full p-4'>
                       <div className='bg-white flex flex-col justify-center text-center rounded-[10px] h-full py-4 px-3'>
                         <img className='self-center mb-3' src='src/assets/Images/icon/icon-04-primary.png' alt='' />
-                        <h5 className='mb-0 font-[Poppins,sans-serif] font-bold'>Policy Controlling</h5>
+                        <h5 className='mb-0 font-[Poppins,sans-serif] font-bold'>Quản lý chính sách</h5>
                       </div>
                     </div>
                   </div>
@@ -371,7 +373,7 @@ const Home = () => {
                     <div className='bg-gray-200/70 rounded-[14px] h-full p-4'>
                       <div className='bg-white flex flex-col justify-center text-center rounded-[10px] h-full py-4 px-3'>
                         <img className='self-center mb-3' src='src/assets/Images/icon/icon-07-primary.png' alt='' />
-                        <h5 className='mb-0 font-[Poppins,sans-serif] font-bold'>Money Saving</h5>
+                        <h5 className='mb-0 font-[Poppins,sans-serif] font-bold'>Tiết kiệm chi phí</h5>
                       </div>
                     </div>
                   </div>
@@ -398,7 +400,7 @@ const Home = () => {
         <div className='container mx-auto sm:px-4'>
           <div className='text-center mx-auto' style={{ maxWidth: '500px' }}>
             <h1 className='text-[40px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold mb-5'>
-              We Provide professional Insurance Services
+              Chúng tôi cung cấp các dịch vụ bảo hiểm chuyên nghiệp.
             </h1>
           </div>
           <div className='flex flex-wrap justify-center gap-6'>
@@ -418,7 +420,7 @@ const Home = () => {
                     </div>
                     <p className='mb-4 pl-10 pr-12 mt-4 text-[#696e77]'>{service.description}</p>
                     <button className='ml-10 px-4 py-[6px] rounded-[10px] text-center font-[ui-sans-serif] text-[17px] text-[#015fc9]  bg-white hover:text-white hover:bg-[#015fc9] self-start'>
-                      Read More
+                      Mua ngay
                     </button>
                   </div>
                 </div>
@@ -514,7 +516,7 @@ const Home = () => {
         <div className='container mx-auto sm:px-4'>
           <div className='text-center mx-auto mb-10' style={{ maxWidth: '500px' }}>
             <h1 className='text-[40px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold mb-5'>
-              Meet Our Professional Team Members
+              Thành viên chuyên nghiệp của đội ngũ
             </h1>
           </div>
           <div className='flex flex-wrap  g-4'>
@@ -528,11 +530,11 @@ const Home = () => {
                   <img className='max-w-full h-auto' src={member.url} alt='' />
                   <div className='text-center p-6'>
                     <h5 className='text-[#15233c] font-[Poppins,sans-serif] font-bold'>{member.name}</h5>
-                    <span className='text-[#696e77]'>Designation</span>
+                    <span className='text-[#696e77]'>CEO</span>
                   </div>
                   <div className='team-text text-center bg-white p-6'>
                     <h5 className='text-[#15233c] font-[Poppins,sans-serif] font-bold'>{member.name}</h5>
-                    <p className='text-[#696e77]'>Designation</p>
+                    <p className='text-[#696e77]'>CEO</p>
                     <div className='flex justify-center'>
                       <button className='flex justify-center items-center w-[38px] h-[38px] transition duration-[300ms] rounded-[10px] py-1 px-3 bg-gray-100 hover:bg-[#015fc9] m-1 group'>
                         <FontAwesomeIcon icon={faTwitter} className='text-[#015fc9] group-hover:text-white' />

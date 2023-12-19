@@ -28,7 +28,6 @@ function Main({ menuList }: Props) {
     }
   }) as FormattedMenu[]
 
-  console.log(menuActive)
   return (
     <>
       {/* BEGIN: Top Bar */}

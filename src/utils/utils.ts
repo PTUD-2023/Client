@@ -26,23 +26,16 @@ export const formatDate = (date: string) => {
   return formattedDate
 }
 
-export function formatDateTime(date: Date) {
-  const daysOfWeek = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
+export const formatCurrentDateTime = () => {
+  const now = new Date()
 
-  const dateTime = new Date(date)
-  const dayOfWeek = daysOfWeek[dateTime.getDay()] // Lấy tên thứ.
+  const hours = now.getHours().toString().padStart(2, '0')
+  const minutes = now.getMinutes().toString().padStart(2, '0')
+  const day = now.getDate().toString().padStart(2, '0')
+  const month = (now.getMonth() + 1).toString().padStart(2, '0')
+  const year = now.getFullYear()
 
-  const day = dateTime.getDate()
-  const month = dateTime.getMonth() + 1 // Tháng trong JavaScript bắt đầu từ 0, cộng thêm 1.
-  const year = dateTime.getFullYear()
-  const hour = dateTime.getHours()
-  const minute = dateTime.getMinutes()
-
-  const formattedDateTime = `${dayOfWeek}, ${day} Tháng ${month}, ${year} lúc ${hour}:${
-    minute < 10 ? '0' : ''
-  }${minute}`
-
-  return formattedDateTime
+  return `${hours}:${minutes} ${day}/${month}/${year}`
 }
 
 export const formatNumber = (num: number) => {

@@ -151,13 +151,13 @@ function HomeHeader() {
               Trang chủ
             </NavLink>
             <a href='about.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
-              About Us
+              Giới thiệu
             </a>
             <a href='service.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
-              Our Services
+              Dịch vụ
             </a>
             <a href='contact.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
-              Contact Us
+              Liên hệ
             </a>
           </div>
         </div>
@@ -180,7 +180,7 @@ function HomeHeader() {
               onClick={handleOpen}
               className='rounded-[10px] bg-[#015fc9] text-white hover:bg-[#0dd3f1] align-middle text-center border font-normal py-1 px-3 hidden lg:block'
             >
-              Get A Quote
+              Nhận báo giá
             </button>
             <ProfileMenu />
           </div>
