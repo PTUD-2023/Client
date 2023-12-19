@@ -8,8 +8,13 @@ import _ from 'lodash'
 import { Transition } from '@headlessui/react'
 import DarkModeSwitcher from '../DarkModeSwitcher'
 import MainColorSwitcher from '../MainColorSwitcher'
+import { FormattedMenu } from 'src/utils/side-menu'
 
-function Main() {
+interface Props {
+  menuList: ('divider' | FormattedMenu)[]
+}
+
+function Main({ menuList }: Props) {
   const [searchDropdown, setSearchDropdown] = useState(false)
   const showSearchDropdown = () => {
     setSearchDropdown(true)
@@ -17,6 +22,11 @@ function Main() {
   const hideSearchDropdown = () => {
     setSearchDropdown(false)
   }
+  const menuActive: FormattedMenu[] = menuList.filter((menu: FormattedMenu | 'divider') => {
+    if (menu != 'divider') {
+      return menu.active
+    }
+  }) as FormattedMenu[]
 
   return (
     <>
@@ -24,9 +34,9 @@ function Main() {
       <div className='h-[67px] z-[51] flex items-center relative border-b border-slate-200'>
         {/* BEGIN: Breadcrumb */}
         <Breadcrumb className='hidden mr-auto -intro-x sm:flex'>
-          <Breadcrumb.Link to='/'>Application</Breadcrumb.Link>
+          <Breadcrumb.Link to='/'>Admin</Breadcrumb.Link>
           <Breadcrumb.Link to='/' active={true}>
-            Dashboard
+            {menuActive[0]?.title}
           </Breadcrumb.Link>
         </Breadcrumb>
         {/* END: Breadcrumb */}

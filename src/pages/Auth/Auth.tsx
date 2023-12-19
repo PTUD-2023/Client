@@ -13,7 +13,7 @@ const Auth = () => {
   }
 
   return (
-    <div className='w-screen h-screen flex justify-center items-center'>
+    <div className='w-screen h-screen flex justify-center items-center bg-white'>
       <div className='bg-[#ebf0f4] flex-1 h-full flex justify-center items-center rounded-br-[50px]'>
         <img src={loginBackground} className='object-none'></img>
       </div>

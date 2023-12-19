@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound'
 import ConfirmAccount from './pages/ConfirmAccount'
 import AdminLayout from './layouts/AdminLayout'
 import Dashboard from './pages/Admin/Dashboard'
+import FormManagement from './pages/Admin/FormManagement'
 import Profile from './pages/Profile'
 import Request from './pages/Request'
 import Terms from './pages/Terms'
@@ -56,12 +57,16 @@ function useRouteElements() {
         {
           path: routes.dashboard,
           element: <Dashboard />
+        },
+        {
+          path: routes.formManagement,
+          element: <FormManagement />
         }
       ]
     },
     {
       path: '',
-      element: <Home/>,
+      element: <Home />,
       children: [
         {
           path: routes.home,
@@ -71,7 +76,7 @@ function useRouteElements() {
     },
     {
       path: '',
-      element: <Profile/>,
+      element: <Profile />,
       children: [
         {
           path: routes.profile,
@@ -81,7 +86,7 @@ function useRouteElements() {
     },
     {
       path: '',
-      element: <Request/>,
+      element: <Request />,
       children: [
         {
           path: routes.request,
@@ -91,7 +96,7 @@ function useRouteElements() {
     },
     {
       path: '',
-      element: <Terms/>,
+      element: <Terms />,
       children: [
         {
           path: routes.terms,
@@ -101,7 +106,7 @@ function useRouteElements() {
     },
     {
       path: '',
-      element: <Contract/>,
+      element: <Contract />,
       children: [
         {
           path: routes.contract,

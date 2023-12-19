@@ -47,7 +47,7 @@ function Main() {
                       </div>
                     </div>
                     <div className='mt-6 text-3xl font-medium leading-8'>4.710</div>
-                    <div className='mt-1 text-base text-slate-500'>Item Sales</div>
+                    <div className='mt-1 text-base text-slate-500'>Hợp đồng</div>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@ function Main() {
                       </div>
                     </div>
                     <div className='mt-6 text-3xl font-medium leading-8'>3.721</div>
-                    <div className='mt-1 text-base text-slate-500'>New Orders</div>
+                    <div className='mt-1 text-base text-slate-500'>Doanh thu</div>
                   </div>
                 </div>
               </div>
@@ -98,7 +98,7 @@ function Main() {
                       </div>
                     </div>
                     <div className='mt-6 text-3xl font-medium leading-8'>2.149</div>
-                    <div className='mt-1 text-base text-slate-500'>Total Products</div>
+                    <div className='mt-1 text-base text-slate-500'>Đơn đăng ký</div>
                   </div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ function Main() {
                       </div>
                     </div>
                     <div className='mt-6 text-3xl font-medium leading-8'>152.040</div>
-                    <div className='mt-1 text-base text-slate-500'>Unique Visitor</div>
+                    <div className='mt-1 text-base text-slate-500'>Khách hàng</div>
                   </div>
                 </div>
               </div>

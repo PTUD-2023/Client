@@ -26,7 +26,6 @@ function ProfileMenu() {
   const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
   const hanldeLogout = () => {
     clearLS()
     dispatch(clearUserAccountAction())
@@ -98,19 +97,18 @@ function ProfileMenu() {
 }
 
 function HomeHeader() {
-  const [lastSegment, setLastSegment] = useState('');
+  const [lastSegment, setLastSegment] = useState('')
 
   useEffect(() => {
     // Lấy đường dẫn hiện tại
-    const currentPath = window.location.pathname;
+    const currentPath = window.location.pathname
 
     // Xử lý chuỗi sau dấu /
-    const newLastSegment = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    const newLastSegment = currentPath.substring(currentPath.lastIndexOf('/') + 1)
 
     // Cập nhật state với giá trị mới
-    setLastSegment(newLastSegment);
-
-  }, []);
+    setLastSegment(newLastSegment)
+  }, [])
 
   const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
   const [open, setOpen] = useState(false)
@@ -151,19 +149,23 @@ function HomeHeader() {
         </button>
         <div className='my-0' id='navbarCollapse'>
           <div className='flex justify-center items-center gap-6 bg-[#F6F7FC] rounded px-6 py-3 lg:py-[10px]'>
-            <Link to={routes.home} className={`inline-block font-semibold hover:text-[#015FC9] ${lastSegment === '' ? 'text-black' : 'text-[#696E77]'}`}>
+            <NavLink
+              to={routes.home}
+              className={`inline-block font-semibold hover:text-[#015FC9] ${
+                lastSegment === '' ? 'text-black' : 'text-[#696E77]'
+              }`}
+            >
               Trang chủ
-            </Link>
-            <Link to='/contract' 
-            className = {` inline-block font-semibold hover:text-[#015FC9] ${lastSegment === 'contract' ? 'text-black' : 'text-[#696E77]'}`}>
-              Hợp đồng
-            </Link>
-            <Link to='/request' className= {`  inline-block font-semibold hover:text-[#015FC9] ${lastSegment === 'request' ? 'text-black' : 'text-[#696E77]'}`}>
-              Yêu cầu
-            </Link>
-            {/* <a href='contact.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
-              Contact Us
-            </a> */}
+            </NavLink>
+            <a href='about.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
+              Giới thiệu
+            </a>
+            <a href='service.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
+              Dịch vụ
+            </a>
+            <a href='contact.html' className=' inline-block font-semibold hover:text-[#015FC9]'>
+              Liên hệ
+            </a>
           </div>
         </div>
         {userAccount.email ? (
@@ -185,7 +187,7 @@ function HomeHeader() {
               onClick={handleOpen}
               className='rounded-[10px] bg-[#015fc9] text-white hover:bg-[#0dd3f1] align-middle text-center border font-normal py-1 px-3 hidden lg:block'
             >
-              Tạo đơn đăng ký
+              Nhận báo giá
             </button>
             <ProfileMenu />
           </div>
