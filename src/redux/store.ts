@@ -6,8 +6,7 @@ import { decryptData, encryptData } from 'src/utils/utils'
 import darkModeReducer from './darkModeSlice'
 import colorSchemeReducer from './colorSchemeSlice'
 import sideMenuReducer from './sideMenuSlice'
-import simpleMenuReducer from './simpleMenuSlice'
-import topMenuReducer from './topMenuSlice'
+import userSideMenuReducer from './userSideMenuSlice'
 
 import userAccountReducer from './reducers/userAccountReducer'
 import tokenReducer from './reducers/tokenReducer'
@@ -40,8 +39,7 @@ const rootReducer = combineReducers({
   darkMode: darkModeReducer,
   colorScheme: colorSchemeReducer,
   sideMenu: sideMenuReducer,
-  simpleMenu: simpleMenuReducer,
-  topMenu: topMenuReducer
+  userSideMenu: userSideMenuReducer
 })
 
 const pRootReducer = persistReducer(persistConfig, rootReducer)

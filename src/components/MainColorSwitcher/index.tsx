@@ -6,7 +6,11 @@ import { Popover } from 'src/components/Headless'
 import clsx from 'clsx'
 import Lucide from '../Lucide'
 
-function Main() {
+interface Props {
+  iconColor: string
+}
+
+function Main({ iconColor }: Props) {
   const dispatch = useAppDispatch()
   const colorScheme = useAppSelector(selectColorScheme)
   const darkMode = useAppSelector(selectDarkMode)
@@ -30,7 +34,7 @@ function Main() {
       {/* BEGIN: Main Color Switcher */}
       <Popover className=''>
         <Popover.Button className='relative text-slate-600 outline-none block'>
-          <Lucide icon='Paintbrush2' className='w-4 h-4 text-primary dark:text-slate-500' />
+          <Lucide icon='Paintbrush2' className={`w-4 h-4 ${iconColor} dark:text-slate-500`} />
         </Popover.Button>
         <Popover.Panel className='w-[220px] sm:w-[220px] p-5 mt-2'>
           <div className='mb-2 font-medium '>Bảng màu</div>
