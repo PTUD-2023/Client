@@ -1,5 +1,4 @@
 import _ from 'lodash'
-import clsx from 'clsx'
 import { useRef, useState } from 'react'
 import fakerData from 'src/utils/faker'
 import Button from 'src/components/AdminCustomButton'
@@ -134,7 +133,7 @@ function Main() {
                 //     </div>
                 //   </Table.Td>
                 // </Table.Tr>
-                <RegFormTableRow faker={faker} fakerKey={fakerKey} />
+                <RegFormTableRow faker={faker} fakerKey={fakerKey} key={fakerKey} />
               ))}
             </Table.Tbody>
           </Table>

@@ -1,21 +1,20 @@
 import { Transition } from 'react-transition-group'
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { selectSideMenu } from 'src/redux/sideMenuSlice'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { selectUserSideMenu } from 'src/redux/userSideMenuSlice'
 import { useAppSelector } from 'src/redux/hooks'
 import { FormattedMenu, linkTo, nestedMenu, enter, leave } from 'src/utils/side-menu'
 
-import logoUrl from 'src/assets/Images/icon/icon-02-light.png'
 import clsx from 'clsx'
-import TopBar from 'src/components/TopBar'
 import MobileMenu from 'src/components/MobileMenu'
 import SideMenuTooltip from 'src/components/SideMenuTooltip'
 import Lucide from 'src/components/Lucide'
+import UserTopBar from 'src/components/UserTopBar'
 
 function Main() {
   const location = useLocation()
   const [formattedMenu, setFormattedMenu] = useState<Array<FormattedMenu | 'divider'>>([])
-  const sideMenuStore = useAppSelector(selectSideMenu)
+  const sideMenuStore = useAppSelector(selectUserSideMenu)
   const sideMenu = () => nestedMenu(sideMenuStore, location)
 
   useEffect(() => {
@@ -26,14 +25,10 @@ function Main() {
     <div className='py-2 admin-html dark:bg-darkmode-800'>
       <div className='admin-body'>
         <MobileMenu />
-        <div className='flex mt-[4.7rem] md:mt-0'>
+        <UserTopBar />
+        <div className='flex mt-[4.7rem] md:mt-0 bg-primarydark rounded-[20px] shadow-[0px_-58px_0_-42px] shadow-primarylight '>
           {/* BEGIN: Side Menu */}
-          <nav className='pr-5 pb-16 overflow-x-hidden hidden md:block w-[85px] xl:w-[230px]'>
-            <Link to='/admin/dashboard' className='flex items-center pt-4 pl-5 intro-x'>
-              <img alt='Midone Tailwind HTML Admin Template' className='w-6' src={logoUrl} />
-              <span className='hidden ml-3 text-xl text-white xl:block'>Insure</span>
-            </Link>
-            <Divider type='div' className='my-6'></Divider>
+          <nav className='mt-10 pr-5 pb-16 overflow-x-hidden hidden md:block w-[85px] xl:w-[230px]'>
             <ul>
               {/* BEGIN: First Child */}
               {formattedMenu.map((menu, menuKey) =>
@@ -131,8 +126,7 @@ function Main() {
           </nav>
           {/* END: Side Menu */}
           {/* BEGIN: Content */}
-          <div className="rounded-[30px] min-w-0 min-h-screen flex-1 pb-10 bg-slate-100 dark:bg-darkmode-700 px-4 md:px-[22px] max-w-full md:max-w-auto before:content-[''] before:w-full before:h-px before:block">
-            <TopBar menuList={formattedMenu} />
+          <div className="rounded-[20px] min-w-0 min-h-screen flex-1 pb-10 bg-slate-100 dark:bg-darkmode-700 px-4 md:px-[22px] max-w-full md:max-w-auto before:content-[''] before:w-full before:h-px before:block">
             <Outlet />
           </div>
           {/* END: Content */}

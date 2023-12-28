@@ -25,6 +25,8 @@ export default withMT({
       colors: {
         header: '#2A2A2A',
         primary: "rgb(var(--color-primary) / <alpha-value>)",
+        primarylight: "rgb(var(--color-primary-light) / <alpha-value>)",
+        primarydark: "rgb(var(--color-primary-dark) / <alpha-value>)",
         secondary: "rgb(var(--color-secondary) / <alpha-value>)",
         success: "rgb(var(--color-success) / <alpha-value>)",
         info: "rgb(var(--color-info) / <alpha-value>)",
@@ -404,6 +406,8 @@ export default withMT({
         // Default colors
         ":root": {
           "--color-primary": toRGB(colors.blue["800"]),
+          "--color-primary-dark": "26 54 149",
+          "--color-primary-light": "53 83 183",
           "--color-secondary": toRGB(colors.slate["200"]),
           "--color-success": toRGB(colors.lime["500"]),
           "--color-info": toRGB(colors.cyan["500"]),
@@ -416,6 +420,8 @@ export default withMT({
         // Default dark-mode colors
         ".dark": {
           "--color-primary": toRGB(colors.blue["700"]),
+          "--color-primary-dark": "41 52 79",
+          "--color-primary-light": "37 49 76",
           "--color-darkmode-50": "87 103 132",
           "--color-darkmode-100": "74 90 121",
           "--color-darkmode-200": "65 81 114",
@@ -430,6 +436,8 @@ export default withMT({
         // Theme 1 colors
         ".theme-1": {
           "--color-primary": toRGB(colors.emerald["900"]),
+          "--color-primary-dark": "5 66 50",
+          "--color-primary-light": "31 96 79",
           "--color-secondary": toRGB(colors.slate["200"]),
           "--color-success": toRGB(colors.emerald["600"]),
           "--color-info": toRGB(colors.cyan["500"]),
@@ -440,11 +448,15 @@ export default withMT({
           "--color-dark": toRGB(colors.slate["800"]),
           "&.dark": {
             "--color-primary": toRGB(colors.emerald["800"]),
+            "--color-primary-dark": "41 52 79",
+            "--color-primary-light": "37 49 76",
           },
         },
         // Theme 2 colors
         ".theme-2": {
           "--color-primary": toRGB(colors.blue["900"]),
+          "--color-primary-dark": "26 49 117",
+          "--color-primary-light": "53 78 150",
           "--color-secondary": toRGB(colors.slate["200"]),
           "--color-success": toRGB(colors.teal["600"]),
           "--color-info": toRGB(colors.cyan["500"]),
@@ -455,11 +467,15 @@ export default withMT({
           "--color-dark": toRGB(colors.slate["800"]),
           "&.dark": {
             "--color-primary": toRGB(colors.blue["800"]),
+            "--color-primary-dark": "41 52 79",
+            "--color-primary-light": "37 49 76",
           },
         },
         // Theme 3 colors
         ".theme-3": {
           "--color-primary": toRGB(colors.cyan["900"]),
+          "--color-primary-dark": "19 66 84",
+          "--color-primary-light": "46 96 115",
           "--color-secondary": toRGB(colors.slate["200"]),
           "--color-success": toRGB(colors.teal["600"]),
           "--color-info": toRGB(colors.cyan["500"]),
@@ -470,11 +486,15 @@ export default withMT({
           "--color-dark": toRGB(colors.slate["800"]),
           "&.dark": {
             "--color-primary": toRGB(colors.cyan["800"]),
+            "--color-primary-dark": "41 52 79",
+            "--color-primary-light": "37 49 76",
           },
         },
         // Theme 4 colors
         ".theme-4": {
           "--color-primary": toRGB(colors.indigo["900"]),
+          "--color-primary-dark": "42 39 110",
+          "--color-primary-light": "rgb(70 67 142)",
           "--color-secondary": toRGB(colors.slate["200"]),
           "--color-success": toRGB(colors.emerald["600"]),
           "--color-info": toRGB(colors.cyan["500"]),
@@ -485,6 +505,8 @@ export default withMT({
           "--color-dark": toRGB(colors.slate["800"]),
           "&.dark": {
             "--color-primary": toRGB(colors.indigo["700"]),
+            "--color-primary-dark": "41 52 79",
+            "--color-primary-light": "37 49 76",
           },
         },
       });

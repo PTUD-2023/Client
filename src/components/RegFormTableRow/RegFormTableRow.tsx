@@ -19,7 +19,7 @@ const RegFormTableRow = ({ faker, fakerKey }: Props) => {
 
   return (
     <>
-      <Table.Tr key={fakerKey} className='intro-x'>
+      <Table.Tr className='intro-x'>
         <Table.Td className='first:rounded-l-md last:rounded-r-md w-10 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
           <div className='flex'>{fakerKey + 1}</div>
         </Table.Td>

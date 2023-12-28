@@ -46,7 +46,7 @@ const CustomInput = ({
         <Input
           type={type}
           color='blue'
-          containerProps={{ className: '' }}
+          containerProps={{ className: ' ' }}
           label={label}
           size='md'
           id={id}

@@ -122,13 +122,13 @@ function Main({ menuList }: Props) {
           </Transition>
         </div>
         {/* END: Search  */}
-        {/* BEGIN: Notifications */}
+        {/* BEGIN: Custom theme, dark mode */}
         <div className='mr-2 flex gap-2 items-center'>
           <DarkModeSwitcher />
-          <MainColorSwitcher />
+          <MainColorSwitcher iconColor='text-primary' />
         </div>
 
-        {/* END: Notifications  */}
+        {/* END: Custom theme, dark mode  */}
         {/* BEGIN: Account Menu */}
         <Menu>
           <Menu.Button className='block w-8 h-8 overflow-hidden rounded-full shadow-lg image-fit zoom-in intro-x'>

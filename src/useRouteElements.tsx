@@ -12,12 +12,8 @@ import ConfirmAccount from './pages/ConfirmAccount'
 import AdminLayout from './layouts/AdminLayout'
 import Dashboard from './pages/Admin/Dashboard'
 import FormManagement from './pages/Admin/FormManagement'
-import Profile from './pages/Profile'
-import Request from './pages/Request'
-import Terms from './pages/Terms'
-import Contract from './pages/Contract'
-import InsuranceRegistrationForm from './components/InsuranceRegistrationForm'
-import HomeHeader from './components/HomeHeader'
+import Profile from './pages/User/UserProfile'
+import UserLayout from './layouts/UserLayout'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -26,6 +22,7 @@ function RejectedRoute() {
 
 function useRouteElements() {
   const routeElements = useRoutes([
+    /* Trang chủ */
     {
       path: '',
       element: <MainLayout />,
@@ -36,6 +33,7 @@ function useRouteElements() {
         }
       ]
     },
+    /* đăng nhập, đăng ký, xác thực email, quên mật khẩu */
     {
       path: '',
       element: <RejectedRoute />,
@@ -50,8 +48,9 @@ function useRouteElements() {
         }
       ]
     },
+    /* role admin */
     {
-      path: routes.admin,
+      path: '',
       element: <AdminLayout />,
       children: [
         {
@@ -64,19 +63,10 @@ function useRouteElements() {
         }
       ]
     },
+    /* Role user: thông tin, quản lý các hợp đồng, đơn đăng ký */
     {
       path: '',
-      element: <Home />,
-      children: [
-        {
-          path: routes.home,
-          element: <Home />
-        }
-      ]
-    },
-    {
-      path: '',
-      element: <Profile />,
+      element: <UserLayout />,
       children: [
         {
           path: routes.profile,
@@ -84,36 +74,7 @@ function useRouteElements() {
         }
       ]
     },
-    {
-      path: '',
-      element: <Request />,
-      children: [
-        {
-          path: routes.request,
-          element: <Request />
-        }
-      ]
-    },
-    {
-      path: '',
-      element: <Terms />,
-      children: [
-        {
-          path: routes.terms,
-          element: <Terms />
-        }
-      ]
-    },
-    {
-      path: '',
-      element: <Contract />,
-      children: [
-        {
-          path: routes.contract,
-          element: <Contract />
-        }
-      ]
-    },
+    /* page not found */
     {
       path: '*',
       element: <NotFound />

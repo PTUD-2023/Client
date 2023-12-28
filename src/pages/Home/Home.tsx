@@ -2,7 +2,7 @@ import { faFacebookF, faLinkedinIn, faTwitter, faYoutube } from '@fortawesome/fr
 import { faArrowUp, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Carousel } from '@material-tailwind/react'
-import React, { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 import FloatingInput from 'src/components/FloatingInput'
 import WOW from 'wow.js'
 import 'animate.css' // Import các hiệu ứng CSS từ animate.css

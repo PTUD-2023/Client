@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 import { useState } from 'react'
 import CustomInput from '../CustomInput'
 import { useNavigate } from 'react-router-dom'
+import DatePicker from '../DatePicker'
 
 interface Props {
   setIsLoginTab: React.Dispatch<React.SetStateAction<boolean>>
@@ -48,6 +49,7 @@ export const Register = ({ setIsLoginTab }: Props) => {
       firstName: '',
       lastName: '',
       phone: '',
+      birthday: '',
       password: '',
       confirmPassword: ''
     },
@@ -62,7 +64,8 @@ export const Register = ({ setIsLoginTab }: Props) => {
     validationSchema: userSchema,
     onSubmit: async (data) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      await signupMutation.mutate(data)
+      //await signupMutation.mutate(data)
+      console.log(data)
     }
   })
 
@@ -118,17 +121,21 @@ export const Register = ({ setIsLoginTab }: Props) => {
             name='lastName'
           />
           {/* Phone */}
-          <CustomInput
-            type='text'
-            openPopoverError={openPopoverPhone}
-            setOpenPopoverError={setOpenPopoverPhone}
-            formik={formik}
-            errorMsg={errorMsg}
-            setErrorMsg={setErrorMsg}
-            label='Số điện thoại'
-            id='my-phone'
-            name='phone'
-          />
+          <div className='grid grid-cols-2 gap-2'>
+            <DatePicker isForm={true} formik={formik} id='birthday' name='birthday' />
+            <CustomInput
+              type='text'
+              openPopoverError={openPopoverPhone}
+              setOpenPopoverError={setOpenPopoverPhone}
+              formik={formik}
+              errorMsg={errorMsg}
+              setErrorMsg={setErrorMsg}
+              label='Số điện thoại'
+              id='my-phone'
+              name='phone'
+            />
+          </div>
+
           {/* password */}
           <CustomInput
             type='password'
