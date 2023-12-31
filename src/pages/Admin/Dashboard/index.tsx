@@ -2,14 +2,6 @@ import _ from 'lodash'
 import clsx from 'clsx'
 import Lucide from 'src/components/Lucide'
 import Tippy from 'src/components/Tippy'
-// import Litepicker from '../../base-components/Litepicker'
-// import ReportDonutChart from '../../components/ReportDonutChart'
-// import ReportLineChart from '../../components/ReportLineChart'
-// import ReportPieChart from '../../components/ReportPieChart'
-// import ReportDonutChart1 from '../../components/ReportDonutChart1'
-// import SimpleLineChart1 from '../../components/SimpleLineChart1'
-// import LeafletMap from '../../components/LeafletMap'
-// import Table from '../../base-components/Table'
 
 function Main() {
   return (
