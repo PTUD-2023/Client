@@ -137,7 +137,7 @@ function HomeHeader() {
               Trang chủ
             </NavLink>
             <NavLink
-              to={routes.terms}
+              to={routes.admin}
               className={({ isActive }) =>
                 classNames(
                   'inline-block font-semibold hover:text-[#015FC9]',
@@ -151,7 +151,7 @@ function HomeHeader() {
               Giới thiệu
             </NavLink>
             <NavLink
-              to={routes.terms}
+              to={routes.service}
               className={({ isActive }) =>
                 classNames(
                   'inline-block font-semibold hover:text-[#015FC9]',
@@ -165,7 +165,7 @@ function HomeHeader() {
               Dịch vụ
             </NavLink>
             <NavLink
-              to={routes.terms}
+              to={routes.admin}
               className={({ isActive }) =>
                 classNames(
                   'inline-block font-semibold hover:text-[#015FC9]',
