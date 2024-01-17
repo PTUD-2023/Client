@@ -11,7 +11,6 @@ interface Props {
 }
 
 const Main = ({ isForm, date, setDate, formik, id, name }: Props) => {
-  console.log(formik.values.birthday)
   return (
     <div className='relative min-w-20 max-w-56 mx-auto'>
       <div className='absolute flex items-center justify-center w-10 h-[38px] border rounded-l bg-slate-100 text-slate-500 dark:bg-darkmode-700 dark:border-darkmode-800 dark:text-slate-400'>
@@ -34,7 +33,7 @@ const Main = ({ isForm, date, setDate, formik, id, name }: Props) => {
           },
           lang: 'vi',
           dropdowns: {
-            minYear: 1990,
+            minYear: 1964,
             maxYear: null,
             months: true,
             years: true

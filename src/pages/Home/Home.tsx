@@ -109,7 +109,7 @@ const Home = () => {
   }, [])
 
   return (
-    <>
+    <div className='mb-12'>
       {/* <!-- Carousel Start --> */}
       <Carousel
         loop={true}
@@ -697,7 +697,7 @@ const Home = () => {
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
       <InsuranceRegistrationForm open={open} handleOpen={handleOpen} />
-    </>
+    </div>
   )
 }
 

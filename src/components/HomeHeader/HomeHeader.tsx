@@ -137,7 +137,7 @@ function HomeHeader() {
               Trang chủ
             </NavLink>
             <NavLink
-              to={routes.admin}
+              to={routes.support}
               className={({ isActive }) =>
                 classNames(
                   'inline-block font-semibold hover:text-[#015FC9]',
@@ -148,7 +148,7 @@ function HomeHeader() {
                 )
               }
             >
-              Giới thiệu
+              Hỗ trợ
             </NavLink>
             <NavLink
               to={routes.service}
