@@ -47,6 +47,7 @@
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "simplebar": "^5.3.9",
+    "swiper": "^11.0.5",
     "tabulator-tables": "^5.3.4",
     "tailwind-merge": "^2.1.0",
     "tiny-slider": "^2.9.4",

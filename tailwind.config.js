@@ -386,6 +386,7 @@ export default withMT({
           },
         },
 
+
         // Top menu
         "intro-top-menu": {
           "100%": {

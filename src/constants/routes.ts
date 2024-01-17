@@ -3,6 +3,7 @@ const routes = {
   login: '/login',
   confirmAccount: '/confirm/:email',
   service: '/service',
+  support: '/support',
   admin: '/admin',
   dashboard: '/admin/dashboard',
   formManagement: '/admin/form-management',

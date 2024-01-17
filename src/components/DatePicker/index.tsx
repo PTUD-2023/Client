@@ -42,7 +42,7 @@ const Main = ({ isForm, date, setDate, formik, id, name, label }: Props) => {
           maxDate: new Date(), 
           lang: 'vi-vn',
           dropdowns: {
-            minYear: 1990,
+            minYear: 1964,
             maxYear: null,
             months: true,
             years: true
