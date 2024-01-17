@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const HomeFooter = () => {
   return (
-    <div className='max-w-full mx-auto sm:px-4 bg-[#15233C] footer mt-5 pt-[60px] wow fadeIn' data-wow-delay='0.1s'>
+    <div className='max-w-full mx-auto sm:px-4 bg-[#15233C] footer pt-[60px] wow fadeIn' data-wow-delay='0.1s'>
       <div className='container mx-auto sm:px-4 py-5'>
         <div className='flex flex-wrap'>
           <div className='lg:w-1/4 md:w-1/2 pr-4 pl-4'>

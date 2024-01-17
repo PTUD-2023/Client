@@ -150,7 +150,7 @@ export const InsuranceService = () => {
   }
 
   return (
-    <div className='h-full flex flex-col items-center'>
+    <div className='h-full flex flex-col items-center mb-12'>
       <h3 className='mt-10 mb-12 text-2xl lg:text-4xl font-bold lg:max-w-[50%] mx-auto lg:mx-0'>
         Biểu phí và quyền lợi các gói bảo hiểm
       </h3>
@@ -161,7 +161,7 @@ export const InsuranceService = () => {
           <img className='w-[315px] h-[238px] ml-[1px]' src='src/assets/images/insurance_service_banner.png' />
           <div className='row-span-2 flex-col justify-center mx-10 my-4 md:mx-0 md:p-4 md:pr-5 md:flex lg:m-6'>
             <p className='text-[#d60007] block leading-none mb-2 text-2xl font-bold lg:font-normal md:font-normal text-c1-500 hover:underline md:text-2xl'>
-              Bảo hiểm Ung thư Ichi Care
+              Bảo hiểm sức khỏe toàn diện
             </p>
             <span className='text-sm'>
               Bảo vệ sức khỏe cho bản thân và gia đình luôn là ưu tiên hàng đầu, đặc biệt là trước bệnh ung thư. Ung thư
