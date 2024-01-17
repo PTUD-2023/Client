@@ -30,37 +30,37 @@ const teamMemberList: { url: string; name: string }[] = [
 const serviceList: { url: string; name: string; description: string }[] = [
   {
     url: 'src/assets/Images/icon/icon-10-light.png',
-    name: 'Life Insurance',
+    name: 'Bảo hiểm cuộc sống',
     description:
       'Toàn thế giới ngoại trừ Hoa Kỳ: Bạn được bảo hiểm bất kỳ đâu ngoại trừ Mỹ. Các dịch vụ được thực hiện ở Mỹ được bảo hiểm lên tới 2.320.000 VNĐ trong thời hạn bảo hiểm'
   },
   {
     url: 'src/assets/Images/icon/icon-01-light.png',
-    name: 'Health Insurance',
+    name: 'Bảo hiểm sức khỏe',
     description:
       'Toàn thế giới ngoại trừ Hoa Kỳ: Bạn được bảo hiểm bất kỳ đâu ngoại trừ Mỹ. Các dịch vụ được thực hiện ở Mỹ được bảo hiểm lên tới 2.320.000 VNĐ trong thời hạn bảo hiểm'
   },
   {
     url: 'src/assets/Images/icon/icon-05-light.png',
-    name: 'Home Insurance',
+    name: 'Bảo hiểm nhà ở',
     description:
       'Toàn thế giới ngoại trừ Hoa Kỳ: Bạn được bảo hiểm bất kỳ đâu ngoại trừ Mỹ. Các dịch vụ được thực hiện ở Mỹ được bảo hiểm lên tới 2.320.000 VNĐ trong thời hạn bảo hiểm'
   },
   {
     url: 'src/assets/Images/icon/icon-08-light.png',
-    name: 'Vehicle Insurance',
+    name: 'Bảo hiểm phương tiện',
     description:
       'Toàn thế giới ngoại trừ Hoa Kỳ: Bạn được bảo hiểm bất kỳ đâu ngoại trừ Mỹ. Các dịch vụ được thực hiện ở Mỹ được bảo hiểm lên tới 2.320.000 VNĐ trong thời hạn bảo hiểm'
   },
   {
     url: 'src/assets/Images/icon/icon-07-light.png',
-    name: 'Business Insurance',
+    name: 'Bảo hiểm kinh doanh',
     description:
       'Toàn thế giới ngoại trừ Hoa Kỳ: Bạn được bảo hiểm bất kỳ đâu ngoại trừ Mỹ. Các dịch vụ được thực hiện ở Mỹ được bảo hiểm lên tới 2.320.000 VNĐ trong thời hạn bảo hiểm'
   },
   {
     url: 'src/assets/Images/icon/icon-06-light.png',
-    name: 'Property Insurance',
+    name: 'Bảo hiểm tài sản',
     description:
       'Toàn thế giới ngoại trừ Hoa Kỳ: Bạn được bảo hiểm bất kỳ đâu ngoại trừ Mỹ. Các dịch vụ được thực hiện ở Mỹ được bảo hiểm lên tới 2.320.000 VNĐ trong thời hạn bảo hiểm'
   }
@@ -156,10 +156,10 @@ const Home = () => {
               <div className='flex flex-wrap '>
                 <div className='w-full lg:w-1/2 pr-4 pl-4'>
                   <h1 className='text-[64px] text-[#15233c] font-[Poppins,sans-serif] leading-[74px] font-bold mb-4 animate__animated animate__slideInDown'>
-                    Insurance Creates Wealth For Everyone
+                  Bảo hiểm nhân thọ không chỉ là cách để bạn bảo vệ tương lai của mình 
                   </h1>
                   <p className='text-[20px] text-[#696e77] font-[ui-sans-serif] mb-5'>
-                    There was a great deal of pain and suffering, but it was a great deal of pain
+                  mà còn là món quà bạn để lại cho người thân sau này.
                   </p>
                   <button className='px-12 py-4 rounded-[10px] text-center font-[ui-sans-serif] text-[17px] bg-[#015fc9] text-white hover:bg-[#0dd3f1]'>
                     Xem chi tiết
@@ -177,11 +177,10 @@ const Home = () => {
               <div className='flex flex-wrap '>
                 <div className='w-full lg:w-1/2 pr-4 pl-4'>
                   <h1 className='text-[64px] text-[#15233c] font-[Poppins,sans-serif] leading-[74px] font-bold mb-4 animated slideInDown'>
-                    The Best Insurance Begins Here
+                  Bảo hiểm nhân thọ giống như một món quà của bạn dành cho gia đình và người thân 
                   </h1>
                   <p className='text-[20px] text-[#696e77] font-[ui-sans-serif] mb-5'>
-                    When customers participate in medical examination and treatment at medical facilities under VBI's
-                    hospital fee guarantee system
+                  trong trường hợp bạn không còn ở bên họ nữa.
                   </p>
                   <button className='px-12 py-4 rounded-[10px] text-center font-[ui-sans-serif] text-[17px] bg-[#015fc9] text-white hover:bg-[#0dd3f1]'>
                     Xem chi tiết
@@ -221,12 +220,12 @@ const Home = () => {
             <div className='lg:w-1/2 pr-4 pl-4 h-full wow animate__animated  animate__fadeInUp' data-wow-delay='0.5s'>
               <div className='h-full flex flex-col justify-between'>
                 <h1 className='text-[40px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold mb-10'>
-                  We're Here To Assist You
-                  <br /> With Exploring Protection
+                  Chúng tôi sẽ giúp bạn bảo vệ tương lai
+                  cho người thân cũng như chính bạn
                 </h1>
                 <p className='text-[20px] text-[#015fc9] font-[Poppins,sans-serif] mb-4'>
-                  Some backyard will be backyard and them. It was the clita itself and the internet, it was just two
-                  things
+                Để bảo vệ tương lai của mình và gia đình, bạn cần đầu tư vào bảo hiểm nhân thọ. 
+                Nó là một khoản đầu tư đáng giá cho tương lai của bạn.
                 </p>
                 <div className='flex flex-wrap mb-4'>
                   <div className='sm:w-1/2 pr-4 pl-4'>
@@ -446,7 +445,7 @@ const Home = () => {
                     </div>
                     <p className='mb-4 pl-10 pr-12 mt-4 text-[#696e77]'>{service.description}</p>
                     <button className='ml-10 px-4 py-[6px] rounded-[10px] text-center font-[ui-sans-serif] text-[17px] text-[#015fc9]  bg-white hover:text-white hover:bg-[#015fc9] self-start'>
-                      Read More
+                    Đọc thêm
                     </button>
                   </div>
                 </div>
@@ -467,18 +466,15 @@ const Home = () => {
             <div className='flex gap-8 h-full'>
               <div className='lg:w-1/2 pr-4 pl-4 wow animate__animated animate__fadeIn h-full' data-wow-delay='0.3s'>
                 <h1 className='text-[40px] font-[Poppins,sans-serif] leading-[48px] font-bold text-white mb-10'>
-                  We're Award Winning Insurance Company
+                Công ty chúng tôi hướng đến mục đích “Giúp khách hàng đạt được an toàn tài chính trọn đời và tận hưởng cuộc sống khoẻ mạnh hơn”.
                 </h1>
                 <p className='text-white mb-5'>
-                  Some backyard will be backyard and them. There was a great deal of pain and suffering, but it was a
-                  great deal of pain. It was time to get rid of the vines. Oh God, let it be God's pain. Some backyard
-                  will be backyard and them. It was a clita itself, and the lore and it was, but the lore was two just
-                  great clitas.
+                Chúng tôi không ngừng tìm kiếm các giải pháp sáng tạo, thiết thực để đáp ứng tốt nhất nhu cầu Khách hàng trong mọi giai đoạn cuộc đời. Chúng tôi mong muốn giúp Khách hàng làm chủ cuộc sống của mình, ngay từ bây giờ cho đến khi họ an nhàn nghỉ hưu.
                 </p>
                 <div className='bg-white rounded-[10px] p-4 mt-12'>
                   <div className='flex items-center bg-[#015fc9] rounded-[10px] p-4'>
                     <img className='flex-shrink-0 rounded-full me-3' src='src/assets/Images/profile.jpg' alt='' />
-                    <h5 className='text-white font-[Poppins,sans-serif] font-bold'>Call Us: +012 345 6789</h5>
+                    <h5 className='text-white font-[Poppins,sans-serif] font-bold'>Liên hệ: +012 345 6789</h5>
                   </div>
                 </div>
               </div>
@@ -501,7 +497,7 @@ const Home = () => {
                           className='px-12 py-4 rounded-[10px] text-center font-[ui-sans-serif] text-[17px] bg-[#015fc9] text-white hover:bg-[#0dd3f1]'
                           type='submit'
                         >
-                          Get Appointment
+                          Nhận cuộc hẹn
                         </button>
                       </div>
                     </div>
@@ -566,7 +562,7 @@ const Home = () => {
         <div className='container mx-auto sm:px-4'>
           <div className='text-center mx-auto' style={{ maxWidth: '500px' }}>
             <h1 className='text-[40px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold mb-5'>
-              What They Say About Our Insurance
+            Họ nói gì về bảo hiểm của chúng tôi
             </h1>
           </div>
           <div className='flex flex-wrap'>
@@ -623,13 +619,12 @@ const Home = () => {
                     alt=''
                   />
                   <p className='text-[20px] text-[#696e77] font-[Poppins,sans-serif]'>
-                    Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem
-                    lorem magna ut et, nonumy et labore et tempor diam tempor erat.
+                  Insure luôn đóng góp tích cực trong các hoạt động hướng đến việc phát triển bền vững cho cộng đồng.
                   </p>
                   <h5 className='text-[20px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold'>
-                    Client Name
+                    Tên khách hàng
                   </h5>
-                  <span className='text-[#696e77]'>Profession</span>
+                  <span className='text-[#696e77]'>Nghề nghiệp</span>
                 </div>
                 <div className='text-center'>
                   <img
@@ -638,13 +633,12 @@ const Home = () => {
                     alt=''
                   />
                   <p className='text-[20px] text-[#696e77] font-[Poppins,sans-serif]'>
-                    Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem
-                    lorem magna ut et, nonumy et labore et tempor diam tempor erat.
+                    Insure luôn đóng góp tích cực trong các hoạt động hướng đến việc phát triển bền vững cho cộng đồng.
                   </p>
                   <h5 className='text-[20px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold'>
-                    Client Name
+                    Tên khách hàng
                   </h5>
-                  <span className='text-[#696e77]'>Profession</span>
+                  <span className='text-[#696e77]'>Nghề nghiệp</span>
                 </div>
                 <div className='text-center'>
                   <img
@@ -653,13 +647,12 @@ const Home = () => {
                     alt=''
                   />
                   <p className='text-[20px] text-[#696e77] font-[Poppins,sans-serif]'>
-                    Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem
-                    lorem magna ut et, nonumy et labore et tempor diam tempor erat.
+                    Insure luôn đóng góp tích cực trong các hoạt động hướng đến việc phát triển bền vững cho cộng đồng.
                   </p>
                   <h5 className='text-[20px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold'>
-                    Client Name
+                    Tên khách hàng
                   </h5>
-                  <span className='text-[#696e77]'>Profession</span>
+                  <span className='text-[#696e77]'>Nghề nghiệp</span>
                 </div>
               </Carousel>
             </div>

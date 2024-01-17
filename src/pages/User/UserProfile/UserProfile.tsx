@@ -12,11 +12,11 @@ const UserProfile = () => {
   }
 
   return (
-    <div className='flex  flex-col items-center relative'>
-      <div className='w-full mt-[50px] flex justify-around mb-[40px]'>
-        <div className='w-[251px] h-fit py-[20px] bg-white rounded-[10px] border-2 border-blue-900 flex-col justify-center items-center gap-[20px] flex'>
+    <div className='flex flex-col items-center relative'>
+      <div className='w-full mt-[50px] flex justify-between mb-[40px]'>
+        <div className='w-fit h-fit py-[20px] bg-white rounded-[10px] border-2 border-blue-900 flex-col justify-center items-center gap-[20px] flex mr-[40px]'>
           <img
-            className='w-[100px] h-[100px] bg-red-300 rounded-[50px] border border-blue-900 justify-end items-center flex'
+            className='w-[100px] h-[100px] bg-red-300 rounded-[50px] border border-blue-900 justify-end items-center flex mx-[50px]'
             src={avt}
           />
           <div className="text-center text-blue-900 text-[17px] font-bold font-['Montserrat']">Drennan</div>
@@ -26,46 +26,9 @@ const UserProfile = () => {
             </div>
           </button>
         </div>
-        {/* <div className="flex gap-2.5 bg-zinc-100 rounded-[25px] shadow border-2 border-blue-900 relative flex-col text-center " >
-        <div className="text-center text-blue-900 text-4xl font-bold font-['Montserrat'] capitalize pt-[40px]">Contract</div>
-        <div className="w-[400px] h-[50px] relative flex text-left ml-[40px] mr-[40px] gap-6">
-          <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Name</div>
-          <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Mehrabbozorgi"/>
-        </div>
-        <div className="w-[400px] h-[50px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] gap-6">
-          <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Address</div>
-          <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="33062 Zboncak isle"/>
-        </div>
-        <div className="w-[400px] h-[50px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] gap-6">
-          <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Phone Number</div>
-          <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="58077.79"/>
-        </div>
-        <div className="w-[400px] h-[50px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] gap-6">
-          <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Email</div>
-          <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Mehrabbozorgi.business@gmail.com"/>
-        </div>
-        <div className="w-[400px] h-[50px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] gap-6">
-          <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Insurance Type</div>
-          <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Health insurance"/>
-        </div>
-        <div className="w-[400px] h-[50px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] gap-6">
-          <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Duration</div>
-          <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="5 years"/>
-        </div>
-        <div className="w-[400px] h-[50px] relative items-center flex text-left ml-[40px] mr-[40px] mt-[20px] mb-[50px] gap-6">
-          <input type="checkbox"/>
-          <div className="text-center">
-            <span className="text-neutral-900 font-medium font-['Montserrat']">I agree to the </span>
-            <Link to={'/terms'} className="text-blue-900 font-normal font-['Montserrat']">contract terms</Link>
-          </div>
-        </div>
-        <div className="absolute right-[40px] bottom-[20px] w-44 h-[50px] px-16 py-4 bg-blue-900 rounded-[25px] shadow border-2 justify-center items-center gap-2.5 flex">
-          <div className="text-white text-lg font-semibold font-['Montserrat']">Send</div>
-        </div>
-      </div> */}
-        <div className='w-fit h-fit rounded-[25px] mr-[200px] border-2 border-blue-900 flex-col justify-center items-center gap-2.5 flex bg-white'>
-          <div className='h-[120px] w-full justify-between items-center flex px-[30px] pt-[40px] pb-[20px]'>
-            <div className="h-[53px] text-blue-900 text-[40px] font-semibold font-['Roboto']">
+        <div className='w-fit h-fit rounded-[25px] mr-[200px] border-2 border-blue-900 flex-col justify-center items-center gap-[20px] flex bg-white leading-normal'>
+          <div className='h-[120px] w-full justify-between items-center flex px-[30px] py-[40px]'>
+            <div className="h-[53px] w-[400px] text-blue-900 text-[40px] font-semibold font-['Roboto']">
               Chỉnh sửa thông tin cá nhân
             </div>
             <div className='w-[80px] h-[80px] relative'>
@@ -76,7 +39,7 @@ const UserProfile = () => {
               />
             </div>
           </div>
-          <div className='w-full h-fit px-[30px] justify-between flex pb-[20px]'>
+          <div className='w-full h-fit px-[30px] justify-between flex py-[20px]'>
             <div className='h-fit flex flex-col gap-[15px] justify-start items-start'>
               <div className="text-blue-900 text-xl font-semibold font-['Roboto']">Họ</div>
               <input
