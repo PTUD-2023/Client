@@ -10,7 +10,8 @@ const routes = {
   insurancePackageManagement: '/admin/insurance-package-management',
   contractManagemet: '/admin/contract-management',
   user: '/user',
-  profile: '/user/profile'
+  profile: '/user/profile',
+  request: '/request',
 } as const
 
 export default routes

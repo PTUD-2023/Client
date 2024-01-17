@@ -15,6 +15,7 @@ import FormManagement from './pages/Admin/FormManagement'
 import Profile from './pages/User/UserProfile'
 import UserLayout from './layouts/UserLayout'
 import InsuranceService from './pages/InsuranceService'
+import Request from './pages/Request'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -76,6 +77,16 @@ function useRouteElements() {
         {
           path: routes.profile,
           element: <Profile />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <Request/>,
+      children: [
+        {
+          path: routes.request,
+          element: <Request />
         }
       ]
     },

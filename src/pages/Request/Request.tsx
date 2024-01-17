@@ -1,4 +1,15 @@
-import { Link } from "react-router-dom";
+import {
+    Button,
+    IconButton,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
+    Select,
+    Option,
+    Input
+} from '@material-tailwind/react'
+import { useFormik } from 'formik'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
@@ -9,37 +20,83 @@ import HomeHeader from "src/components/HomeHeader";
 const Request = () => {
     const [isSupportVisible, setSupportVisible] = useState(false);
 
+    const formik = useFormik({
+        initialValues: {
+            amount: '',
+            request_date: new Date(),
+            request_content: '',
+        },
+        initialTouched: {
+            amount: false,
+            request_content: false,
+        },
+
+        onSubmit: async (data) => {
+            console.log(data)
+        }
+    })
     const toggleSupportVisibility = () => {
         setSupportVisible(!isSupportVisible);
     };
     return (
         <div className="flex relative flex-col items-center relative">
             <HomeHeader />
-            <div className="inline-flex gap-2.5 bg-zinc-100 rounded-[25px] mb-[40px] shadow border-2 border-blue-900 mt-[80px] relative flex-col text-center " >
+            <div className="inline-flex gap-2.5 bg-white rounded-[25px] mb-[40px] shadow border-2 border-blue-900 mt-[80px] relative flex-col text-center " >
                 <div className="text-center text-blue-900 text-4xl font-bold font-['Montserrat'] capitalize pt-[40px]">Yêu cầu</div>
-                <div className="w-[400px] h-[70px] relative flex text-left ml-[40px] mr-[40px] gap-6">
+                <form id='insurance-registration-form' onSubmit={formik.handleSubmit}>
+                    <div className='flex flex-col gap-2 justify-between items-center mb-[20px] mx-[40px]'>
+                        <div className='w-[400px]'>
+                            <Input
+                                id='insurance-registration-form-name'
+                                name='amount'
+                                value={formik.values.amount}
+                                onChange={formik.handleChange}
+                                label='Tống số tiền'
+                                size='lg'
+                                variant="outlined"
+                                crossOrigin={undefined}
+                                color='blue'
+                            />
+                        </div>
+                        <div className='w-[400px]'>
+                            <Input
+                                label='Nội dung yêu cầu thanh toán'
+                                size='lg'
+                                name='request_content'
+                                className='h-[100px]'
+                                value={formik.values.request_content}
+                                onChange={formik.handleChange}
+                                crossOrigin={undefined}
+                                color='blue' />
+                        </div>
+                        <div className="flex w-full justify-end">
+                            <div className="flex w-fit h-fit bg-blue-900 rounded-[25px] shadow border-2 justify-center items-center gap-2.5">
+                                <span className="text-white text-lg font-semibold font-['Montserrat'] px-[40px] py-[10px]">Gửi</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                {/* <div className="w-[400px] h-[70px] relative flex text-left ml-[40px] mr-[40px] gap-6">
+
                     <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Tên</div>
-                    <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Mehrabbozorgi" />
+                    <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Nhập tên của bạn" />
                 </div>
                 <div className="w-[400px] h-[70px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] gap-6">
                     <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Địa chỉ</div>
-                    <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="33062 Zboncak isle" />
+                    <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Nhập địa chỉ" />
                 </div>
                 <div className="w-[400px] h-[70px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] gap-6">
                     <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Số điện thoại</div>
-                    <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="58077.79" />
+                    <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Nhập số điện thoại" />
                 </div>
                 <div className="w-[400px] h-[70px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] gap-6">
                     <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Email</div>
-                    <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Mehrabbozorgi.business@gmail.com" />
+                    <input className="w-[400px] h-[50px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Nhập email" />
                 </div>
                 <div className="w-[400px] h-[220px] relative flex text-left ml-[40px] mr-[40px] mt-[20px] mb-[70px] gap-6">
                     <div className="left-0 top-0 absolute text-blue-900 text-[20px] font-semibold font-['Montserrat']">Loại bảo hiểm</div>
-                    <input className="w-[400px] h-[150px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Health insurance" />
-                </div>
-                <div className="absolute right-[40px] bottom-[20px] w-44 h-[50px] px-16 py-4 bg-blue-900 rounded-[25px] shadow border-2 justify-center items-center gap-2.5 inline-flex">
-                    <div className="text-white text-lg font-semibold font-['Montserrat']">Gửi</div>
-                </div>
+                    <input className="w-[400px] h-[150px] left-0 top-[38px] absolute bg-white pl-[20px] pr-[20px] rounded-[15px] border-2 border-zinc-500" placeholder="Nhập loại bảo hiểm" />
+                </div> */}
             </div>
             <div className="w-full flex mt-[20px] justify-center items-center flex bg-white">
 
