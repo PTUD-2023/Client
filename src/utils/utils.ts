@@ -68,15 +68,6 @@ export function encodeBase64(inputString: string): string {
   }
 }
 
-export const formatNumberToSocialStyle = (value: number) => {
-  return new Intl.NumberFormat('en', {
-    notation: 'compact',
-    maximumFractionDigits: 1
-  })
-    .format(value)
-    .replace('.', ',')
-}
-
 // Hàm mã hóa dữ liệu
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const encryptData = (data: any) => {
@@ -90,4 +81,18 @@ export const decryptData = (encryptedData: any) => {
   const bytes = AES.decrypt(encryptedData, import.meta.env.VITE_SECRET_KEY as string)
   const decryptedData = JSON.parse(bytes.toString(enc.Utf8))
   return decryptedData
+}
+
+// Hàm tính tuổi
+export const calAge = (birthday: string) => {
+  const today = new Date()
+  const birthDate = new Date(birthday)
+  let age = today.getFullYear() - birthDate.getFullYear()
+  const month = today.getMonth() - birthDate.getMonth()
+
+  if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+    age--
+  }
+
+  return age
 }

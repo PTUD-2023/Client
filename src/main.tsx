@@ -12,6 +12,8 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { store, persistor } from './redux/store'
 import 'src/assets/css/app.css'
+// Import Swiper styles
+import 'swiper/css'
 
 // Tắt tự động fetch api khi focus vào window
 const queryClient = new QueryClient({
@@ -98,6 +100,51 @@ const theme = {
         container: {
           minWidth: 'min-w-[50px]'
         }
+      }
+    }
+  },
+  tab: {
+    styles: {
+      base: {
+        tab: {
+          initial: {
+            width: 'w-full',
+            height: 'h-full',
+            position: 'relative',
+            bg: 'bg-transparent',
+            py: '',
+            px: '',
+            color: 'text-blue-gray-900',
+            fontSmoothing: 'antialiased',
+            fontFamily: 'font-sans',
+            fontSize: 'text-base',
+            fontWeight: 'font-normal',
+            lineHeight: 'leading-relaxed',
+            userSelect: 'select-none',
+            cursor: 'cursor-pointer'
+          }
+        }
+      }
+    }
+  },
+  tabsHeader: {
+    defaultProps: {
+      className: ''
+    },
+    styles: {
+      base: {
+        display: 'flex',
+        position: 'relative',
+        bg: 'bg-blue-gray-50',
+        bgOpacity: 'bg-opacity-60',
+        borderRadius: 'rounded-lg',
+        p: 'p-1'
+      },
+      horizontal: {
+        flexDirection: 'flex-row'
+      },
+      vertical: {
+        flexDirection: 'flex-col'
       }
     }
   }
