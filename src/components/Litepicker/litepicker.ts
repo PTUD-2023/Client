@@ -26,7 +26,7 @@ const setValue = (props: LitepickerProps) => {
     let date = dayjs().format(format)
     date +=
       !props.options.singleMode && props.options.singleMode !== undefined
-        ? ' - ' + dayjs().add(1, 'month').format(format)
+        ? ' - ' + dayjs().add(0, 'month').format(format)
         : ''
     props.onChange(date)
   }
@@ -44,7 +44,7 @@ const init = (el: LitepickerElement, props: LitepickerProps) => {
           let date = dayjs(startDate.dateInstance).format(format)
           date += endDate !== undefined ? ' - ' + dayjs(endDate.dateInstance).format(format) : ''
           props.onChange(date)
-        })
+        });
       }
     }
   })

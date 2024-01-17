@@ -165,7 +165,7 @@ function HomeHeader() {
               Dịch vụ
             </NavLink>
             <NavLink
-              to={routes.admin}
+              to={routes.request}
               className={({ isActive }) =>
                 classNames(
                   'inline-block font-semibold hover:text-[#015FC9]',
@@ -208,7 +208,7 @@ function HomeHeader() {
       {/* <!-- Navbar End --> */}
 
       {/* dialog form đăng ký bảo hiểm */}
-      <InsuranceRegistrationForm open={open} handleOpen={handleOpen} />
+      <InsuranceRegistrationForm open={open} handleOpen={handleOpen}/>
     </div>
   )
 }
