@@ -230,7 +230,7 @@ const Support = () => {
             data-aos-duration='500'
             className='mx-auto mb-5 text-justify text-2xl lg:text-xl aos-init'
           >
-            Chỉ với 03 bước đơn giản, bạn đã có thể tham gia bảo hiểm trực tuyến vô cùng nhanh chóng.
+            Chỉ với 04 bước đơn giản, bạn đã có thể tham gia bảo hiểm trực tuyến vô cùng nhanh chóng.
           </p>
         </div>
         <div
@@ -270,7 +270,7 @@ const Support = () => {
         </div>
       )}
       {/* THông tin liên hệ trưc tiếp */}
-      <div className='px-4 lg:pt-10 mx-auto lg:px-24 bg-[#FFFBF8]'>
+      <div className='px-4 lg:pt-10 mx-auto lg:px-24 bg-[#fefcfa]'>
         <div className='mx-auto max-w-7xl lg:px-24'>
           <h2 className='mb-4 text-4xl font-bold'>Liên hệ với Insure Life Việt Nam</h2>
           <p className='mb-8'>
