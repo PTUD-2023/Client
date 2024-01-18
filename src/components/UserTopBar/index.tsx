@@ -45,7 +45,7 @@ function Main() {
               <FormInput
                 type='text'
                 className='border-transparent w-56 shadow-none rounded-full bg-white pr-8 transition-[width] duration-300 ease-in-out focus:border-transparent focus:w-72 dark:bg-darkmode-400/70'
-                placeholder='Search...'
+                placeholder='Tìm kiếm...'
                 onFocus={showSearchDropdown}
                 onBlur={hideSearchDropdown}
               />
@@ -69,28 +69,28 @@ function Main() {
             >
               <div className='absolute right-0 z-10 mt-[3px]'>
                 <div className='w-[450px] p-5 box'>
-                  <div className='mb-2 font-medium'>Pages</div>
+                  <div className='mb-2 font-medium'>Trang</div>
                   <div className='mb-5'>
                     <a href='' className='flex items-center'>
                       <div className='flex items-center justify-center w-8 h-8 rounded-full bg-success/20 dark:bg-success/10 text-success'>
                         <Lucide icon='Inbox' className='w-4 h-4' />
                       </div>
-                      <div className='ml-3'>Mail Settings</div>
+                      <div className='ml-3'>Cài đặt mail</div>
                     </a>
                     <a href='' className='flex items-center mt-2'>
                       <div className='flex items-center justify-center w-8 h-8 rounded-full bg-pending/10 text-pending'>
                         <Lucide icon='Users' className='w-4 h-4' />
                       </div>
-                      <div className='ml-3'>Users & Permissions</div>
+                      <div className='ml-3'>Người dùng & Quyền</div>
                     </a>
                     <a href='' className='flex items-center mt-2'>
                       <div className='flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 dark:bg-primary/20 text-primary/80'>
                         <Lucide icon='CreditCard' className='w-4 h-4' />
                       </div>
-                      <div className='ml-3'>Transactions Report</div>
+                      <div className='ml-3'>Báo cáo giao dịch</div>
                     </a>
                   </div>
-                  <div className='mb-2 font-medium'>Users</div>
+                  <div className='mb-2 font-medium'>Người dùng</div>
                   <div className='mb-5'>
                     {_.take(fakerData, 4).map((faker, fakerKey) => (
                       <a key={fakerKey} href='' className='flex items-center mt-2'>
@@ -144,20 +144,20 @@ function Main() {
               </Menu.Header>
               <Menu.Divider className='bg-white/[0.08]' />
               <Menu.Item className='hover:bg-white/5'>
-                <Lucide icon='User' className='w-4 h-4 mr-2' /> Profile
+                <Lucide icon='User' className='w-4 h-4 mr-2' /> Cá nhân
               </Menu.Item>
               <Menu.Item className='hover:bg-white/5'>
-                <Lucide icon='Edit' className='w-4 h-4 mr-2' /> Add Account
+                <Lucide icon='Edit' className='w-4 h-4 mr-2' /> Thêm tài khoản
               </Menu.Item>
               <Menu.Item className='hover:bg-white/5'>
-                <Lucide icon='Lock' className='w-4 h-4 mr-2' /> Reset Password
+                <Lucide icon='Lock' className='w-4 h-4 mr-2' /> Đặt lại mật khẩu
               </Menu.Item>
               <Menu.Item className='hover:bg-white/5'>
-                <Lucide icon='HelpCircle' className='w-4 h-4 mr-2' /> Help
+                <Lucide icon='HelpCircle' className='w-4 h-4 mr-2' /> Trợ giúp
               </Menu.Item>
               <Menu.Divider className='bg-white/[0.08]' />
               <Menu.Item className='hover:bg-white/5'>
-                <Lucide icon='ToggleRight' className='w-4 h-4 mr-2' /> Logout
+                <Lucide icon='ToggleRight' className='w-4 h-4 mr-2' /> Đăng xuất
               </Menu.Item>
             </Menu.Items>
           </Menu>

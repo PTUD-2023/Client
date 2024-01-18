@@ -89,13 +89,13 @@ const data = [
 
 export const InsuranceService = () => {
   const [isMale, setIsMale] = useState(true)
-  const [date, setDate] = useState('')
+  const [date, setDate] = useState(new Date())
   const [activeTab, setActiveTab] = useState('1')
   const [checkboxState, setCheckboxState] = useState({
     OutpatientCheckbox: false,
     DentalCheckbox: false,
     MaternityCheckbox: false,
-    DeathCheckbox: false
+    DeathCheckbox: false 
   })
 
   const handleCheckboxChange = (checkboxName) => {
@@ -112,6 +112,7 @@ export const InsuranceService = () => {
   })
 
   const insurancePlanList = getReaction.data?.data as InsurancePlan[]
+  console.log(insurancePlanList)
 
   useEffect(() => {
     let age = calAge(date)
@@ -214,7 +215,7 @@ export const InsuranceService = () => {
           {/* ngày sinh */}
           <div className='h-[130px] w-[300px] bg-white flex flex-col justify-center items-center gap-2 rounded-md '>
             <p className='font-medium'>Ngày sinh:</p>
-            <DatePicker isForm={false} date={date} setDate={setDate} id='birthday' name='birthday' />
+            <DatePicker isForm={false} date={date} setDate={setDate} id='birthday' name='birthday' label=''/>
           </div>
 
           {/* quyền lợi bổ sung */}
@@ -338,11 +339,11 @@ export const InsuranceService = () => {
                 unmount: { y: 250 }
               }}
             >
-              {data.map(({ value }) => (
+              {data?.map(({ value }) => (
                 <TabPanel key={value} value={value} className='p-0 pt-4 m-0'>
                   <div className=''>
                     <Swiper spaceBetween={16} slidesPerView={2}>
-                      {insurancePlanList.map((insurancePlan, index) => (
+                      {insurancePlanList?.map((insurancePlan, index) => (
                         <SwiperSlide key={index}>
                           <InsurancePlanCard
                             insurancePlan={insurancePlan}

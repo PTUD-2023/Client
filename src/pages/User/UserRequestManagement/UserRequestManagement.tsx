@@ -9,7 +9,6 @@ import Lucide from 'src/components/Lucide'
 import { Dialog } from 'src/components/Headless'
 import Table from 'src/components/Table'
 import { formatCurrentDateTime } from 'src/utils/utils'
-import RegUserFormTableRow from 'src/components/RegUserFormTableRow'
 import RegUserRequestTableRow from 'src/components/RegUserRequestTableRow'
 import RequestForm from 'src/components/RequestForm'
 
@@ -20,9 +19,7 @@ function getRandomEmail() {
 }
 
 function generateRandomData() {
-  const typesOfInsurance = ['Cá nhân', 'Nhóm']
-  const insurancePackages = ['Gói A', 'Gói B', 'Gói C']
-  const contentList = ['Acident', 'Sick', 'Die']
+  const contentList = ['acident', 'sick', 'die']
   const statusList = ['pending', 'refused', 'approved']
 
   return {
@@ -54,10 +51,10 @@ function UserFormManagement() {
             Thêm yêu cầu mới
           </Button>
          <RequestForm open={open} handleOpen={handleOpen}/>
-          <div className='hidden mx-auto md:block text-slate-500'>Showing 1 to 10 of 150 entries</div>
+          <div className='hidden mx-auto md:block text-slate-500'>Hiển thị 1 đến 10 trong 150 mục</div>
           <div className='w-full mt-3 sm:w-auto sm:mt-0 sm:ml-auto md:ml-0'>
             <div className='relative w-56 text-slate-500'>
-              <FormInput type='text' className='w-56 pr-10 !box' placeholder='Search...' />
+              <FormInput type='text' className='w-56 pr-10 !box' placeholder='Tìm kiếm...' />
               <Lucide icon='Search' className='absolute inset-y-0 right-0 w-4 h-4 my-auto mr-3' />
             </div>
           </div>
@@ -92,8 +89,8 @@ function UserFormManagement() {
               <Lucide icon='ChevronLeft' className='w-4 h-4' />
             </Pagination.Link>
             <Pagination.Link>...</Pagination.Link>
-            <Pagination.Link>1</Pagination.Link>
-            <Pagination.Link active>2</Pagination.Link>
+            <Pagination.Link active>1</Pagination.Link>
+            <Pagination.Link>2</Pagination.Link>
             <Pagination.Link>3</Pagination.Link>
             <Pagination.Link>...</Pagination.Link>
             <Pagination.Link>

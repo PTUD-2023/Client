@@ -84,7 +84,7 @@ export const decryptData = (encryptedData: any) => {
 }
 
 // Hàm tính tuổi
-export const calAge = (birthday: string) => {
+export const calAge = (birthday: Date) => {
   const today = new Date()
   const birthDate = new Date(birthday)
   let age = today.getFullYear() - birthDate.getFullYear()

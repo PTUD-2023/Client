@@ -17,6 +17,9 @@ import UserLayout from './layouts/UserLayout'
 import InsuranceService from './pages/InsuranceService'
 import Request from './pages/Request'
 import Support from './pages/Support'
+import UserRequestManagement from './pages/User/UserRequestManagement'
+import UserFormManagement from './pages/User/UserFormManagement'
+import UserContractManagement from './pages/User/UserContractManagement'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -87,11 +90,31 @@ function useRouteElements() {
     },
     {
       path: '',
-      element: <Request/>,
+      element: <UserLayout/>,
       children: [
         {
-          path: routes.request,
-          element: <Request />
+          path: routes.userFormManagement,
+          element: <UserFormManagement />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <UserLayout/>,
+      children: [
+        {
+          path: routes.userContractManagement,
+          element: <UserContractManagement />
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <UserLayout/>,
+      children: [
+        {
+          path: routes.userRequestManagement,
+          element: <UserRequestManagement />
         }
       ]
     },

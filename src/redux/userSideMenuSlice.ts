@@ -17,29 +17,24 @@ export interface SideMenuState {
 const initialState: SideMenuState = {
   menu: [
     {
-      icon: 'Home',
-      pathname: '/user/profile',
-      title: 'Thông tin'
-    },
-    {
       icon: 'Users',
-      title: 'Quản lý tài khoản',
-      pathname: '/admin/account-management'
+      pathname: '/user/profile',
+      title: 'Thông tin tài khoản'
     },
     {
       icon: 'FileText',
-      title: 'Hợp đồng của tôi',
-      pathname: '/admin/form-management'
+      title: 'Danh sách đơn đăng ký',
+      pathname: '/user/user-form-management'
     },
     {
       icon: 'HeartHandshake',
-      title: 'Quản lý hợp đồng',
-      pathname: '/admin/contract-management'
+      title: 'Hợp đồng của tôi',
+      pathname: '/user/user-contract-management'
     },
     {
-      icon: 'ShieldCheck',
-      title: 'abc',
-      pathname: '/admin/insurance-package-management'
+      icon: 'History',
+      title: 'Lịch sử yêu cầu',
+      pathname: '/user/user-request-management'
     }
   ]
 }

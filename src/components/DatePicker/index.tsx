@@ -6,7 +6,7 @@ import { useMemo } from 'react'
 
 interface Props {
   date?: Date
-  setDate?: React.Dispatch<React.SetStateAction<string>>
+  setDate?: React.Dispatch<React.SetStateAction<Date>>
   formik?: any
   id: string
   name: string

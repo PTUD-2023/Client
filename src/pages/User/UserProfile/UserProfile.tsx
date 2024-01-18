@@ -13,20 +13,8 @@ const UserProfile = () => {
 
   return (
     <div className='flex flex-col items-center relative'>
-      <div className='w-full mt-[50px] flex justify-between mb-[40px]'>
-        <div className='w-fit h-fit py-[20px] bg-white rounded-[10px] border-2 border-blue-900 flex-col justify-center items-center gap-[20px] flex mr-[40px]'>
-          <img
-            className='w-[100px] h-[100px] bg-red-300 rounded-[50px] border border-blue-900 justify-end items-center flex mx-[50px]'
-            src={avt}
-          />
-          <div className="text-center text-blue-900 text-[17px] font-bold font-['Montserrat']">Drennan</div>
-          <button className='bg-gray-300 rounded-md justify-center items-center flex'>
-            <div className="px-[20px] py-[10px] text-blue-600 text-base font-bold font-['Roboto'] leading-normal">
-              Thông tin
-            </div>
-          </button>
-        </div>
-        <div className='w-fit h-fit rounded-[25px] mr-[200px] border-2 border-blue-900 flex-col justify-center items-center gap-[20px] flex bg-white leading-normal'>
+      <div className='w-full mt-[50px] flex justify-center mb-[40px]'>
+        <div className='w-fit h-fit rounded-[10px] mr-[200px] border-2 border-blue-900 flex-col justify-center items-center gap-[20px] flex bg-white leading-normal'>
           <div className='h-[120px] w-full justify-between items-center flex px-[30px] py-[40px]'>
             <div className="h-[53px] w-[400px] text-blue-900 text-[40px] font-semibold font-['Roboto']">
               Chỉnh sửa thông tin cá nhân

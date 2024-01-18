@@ -12,7 +12,9 @@ const routes = {
   contractManagemet: '/admin/contract-management',
   user: '/user',
   profile: '/user/profile',
-  request: '/request',
+  userFormManagement: '/user/user-form-management',
+  userContractManagement: '/user/user-contract-management',
+  userRequestManagement: '/user/user-request-management',
 } as const
 
 export default routes

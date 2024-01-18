@@ -35,7 +35,9 @@ const RegUserRequestTableRow = ({ faker, fakerKey }: Props) => {
         {Math.floor(Math.random() * (50000000 - 10000000) + 10000000)}
         </Table.Td>
         <Table.Td className='first:rounded-l-md last:rounded-r-md bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
-          <div className='flex'>{faker.content}</div>
+          <div className='flex'>
+          {faker.content === 'sick' ? 'Đau ốm' : faker.status === 'die' ? 'Tử vong' : 'Tai nạn'}
+            </div>
         </Table.Td>
         <Table.Td className='first:rounded-l-md last:rounded-r-md w-10 bg-white border-b-0 dark:bg-darkmode-600 shadow-[20px_3px_20px_#0000000b]'>
           <div className='flex'>{faker.date}</div>
