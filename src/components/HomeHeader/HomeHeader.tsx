@@ -11,7 +11,6 @@ import logo from 'src/assets/Images/icon/icon-02-primary.png'
 import { clearUserAccountAction } from 'src/redux/actions/userAccountAction'
 import { clearLS } from 'src/utils/auth'
 import classNames from 'classnames'
-import InsuranceRegistrationForm from '../InsuranceRegistrationForm'
 
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -84,9 +83,6 @@ function ProfileMenu() {
 
 function HomeHeader() {
   const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
-  const [open, setOpen] = useState(false)
-
-  const handleOpen = () => setOpen(!open)
 
   useEffect(() => {
     window.addEventListener('scroll', function () {
@@ -165,6 +161,20 @@ function HomeHeader() {
               Dịch vụ
             </NavLink>
             <NavLink
+              to={routes.registerInsurance}
+              className={({ isActive }) =>
+                classNames(
+                  'inline-block font-semibold hover:text-[#015FC9]',
+                  {
+                    'text-[#015FC9]': isActive
+                  },
+                  { 'text-[#696E77]': !isActive }
+                )
+              }
+            >
+              Đăng ký
+            </NavLink>
+            <NavLink
               to={routes.request}
               className={({ isActive }) =>
                 classNames(
@@ -195,10 +205,7 @@ function HomeHeader() {
           </div>
         ) : (
           <div className='flex gap-4'>
-            <button
-              onClick={handleOpen}
-              className='rounded-[10px] bg-[#015fc9] text-white hover:bg-[#0dd3f1] align-middle text-center border font-normal py-1 px-3 hidden lg:block'
-            >
+            <button className='rounded-[10px] bg-[#015fc9] text-white hover:bg-[#0dd3f1] align-middle text-center border font-normal py-1 px-3 hidden lg:block'>
               Nhận báo giá
             </button>
             <ProfileMenu />
@@ -206,9 +213,6 @@ function HomeHeader() {
         )}
       </nav>
       {/* <!-- Navbar End --> */}
-
-      {/* dialog form đăng ký bảo hiểm */}
-      <InsuranceRegistrationForm open={open} handleOpen={handleOpen}/>
     </div>
   )
 }

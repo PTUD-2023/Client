@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Checkbox, Tab, TabPanel, Tabs, TabsBody, TabsHeader, Tooltip } from '@material-tailwind/react'
 import { useQuery } from '@tanstack/react-query'
 import { Fragment, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import insurancePlanApi from 'src/apis/insurancePlan.api'
 import DatePicker from 'src/components/DatePicker'
 import InsurancePlanCard from 'src/components/InsurancePlanCard'
 import { additionalBenefits, insuranceBenefits } from 'src/constants/insuranceBenefits'
+import routes from 'src/constants/routes'
 import { InsurancePlan } from 'src/types/insurancePlan.type'
 import { calAge } from 'src/utils/utils'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -15,7 +17,7 @@ interface AdditionalBenefitsInforProps {
   indexArray: number
 }
 
-const AdditionalBenefitsInfor = ({ indexArray }: AdditionalBenefitsInforProps) => {
+export const AdditionalBenefitsInfor = ({ indexArray }: AdditionalBenefitsInforProps) => {
   return (
     <li className='relative mb-4'>
       <div>
@@ -105,13 +107,13 @@ export const InsuranceService = () => {
     }))
   }
 
-  const getReaction = useQuery({
+  const getAllPlan = useQuery({
     queryKey: [`get-all-plan`],
     queryFn: () => insurancePlanApi.getAllInsurancePlan(),
     onError: (err) => console.log(err)
   })
 
-  const insurancePlanList = getReaction.data?.data as InsurancePlan[]
+  const insurancePlanList = getAllPlan.data?.data as InsurancePlan[]
 
   useEffect(() => {
     let age = calAge(date)
@@ -137,7 +139,7 @@ export const InsuranceService = () => {
     }
   }, [activeTab])
 
-  if (getReaction.isLoading) {
+  if (getAllPlan.isLoading) {
     return (
       <div className='loading loading-center-body bg-gray-200'>
         <div className='loader-circle-8'>
@@ -158,7 +160,7 @@ export const InsuranceService = () => {
       <div className='flex flex-col border-2 border-[#DDD2C0] justify-center items-center rounded-md '>
         {/* banner */}
         <div className='h-[242px] max-w-[1330px] flex bg-white rounded-t-md mt-[1px] border-b-4 border-[#DDD2C0]'>
-          <img className='w-[315px] h-[238px] ml-[1px]' src='src/assets/images/insurance_service_banner.png' />
+          <img className='w-[315px] h-[238px]' src='src/assets/images/insurance_service_banner.png' />
           <div className='row-span-2 flex-col justify-center mx-10 my-4 md:mx-0 md:p-4 md:pr-5 md:flex lg:m-6'>
             <p className='text-[#d60007] block leading-none mb-2 text-2xl font-bold lg:font-normal md:font-normal text-c1-500 hover:underline md:text-2xl'>
               Bảo hiểm sức khỏe toàn diện
@@ -169,9 +171,11 @@ export const InsuranceService = () => {
             </span>
           </div>
           <div className='flex justify-center items-center mr-4 '>
-            <button className='w-[180px] h-10 transition bg-white border border-gray-300 rounded-md text-[#d60007] font-bold hover:bg-red-200'>
-              Tìm hiểu cách mua
-            </button>
+            <Link to={routes.support}>
+              <button className='w-[180px] h-10 transition bg-white border border-gray-300 rounded-md text-[#d60007] font-bold hover:bg-red-200'>
+                Tìm hiểu cách mua
+              </button>
+            </Link>
           </div>
         </div>
         {/*end banner  */}

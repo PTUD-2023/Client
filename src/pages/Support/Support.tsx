@@ -107,7 +107,7 @@ const data: AccordionCardType[] = [
   }
 ]
 
-function Icon({ id, open }) {
+export function Icon({ id, open }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

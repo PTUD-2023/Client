@@ -17,10 +17,23 @@ import UserLayout from './layouts/UserLayout'
 import InsuranceService from './pages/InsuranceService'
 import Request from './pages/Request'
 import Support from './pages/Support'
+import RegisterInsurance from './pages/RegisterInsurance'
+import { useSelector } from 'react-redux'
+import { RootState } from './redux/store'
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
   return isAuthenticated ? <Navigate to={routes.home} /> : <Outlet />
+}
+
+function PrivateRoute() {
+  const { isAuthenticated } = useContext(AppContext)
+  return isAuthenticated ? <Outlet /> : <Navigate to={routes.login} />
+}
+
+function AdminRoute() {
+  const userAccount = useSelector((state: RootState) => state.rootReducer.userAccountReducer)
+  return userAccount?.role === 'ROLE_ADMIN' ? <Outlet /> : <Navigate to={routes.home} />
 }
 
 function useRouteElements() {
@@ -44,6 +57,23 @@ function useRouteElements() {
         }
       ]
     },
+    /* private route */
+    {
+      path: '',
+      element: <PrivateRoute />,
+      children: [
+        {
+          path: routes.home,
+          element: <MainLayout />,
+          children: [
+            {
+              path: routes.registerInsurance,
+              element: <RegisterInsurance />
+            }
+          ]
+        }
+      ]
+    },
     /* đăng nhập, đăng ký, xác thực email, quên mật khẩu */
     {
       path: '',
@@ -62,15 +92,21 @@ function useRouteElements() {
     /* role admin */
     {
       path: '',
-      element: <AdminLayout />,
+      element: <AdminRoute />,
       children: [
         {
-          path: routes.dashboard,
-          element: <Dashboard />
-        },
-        {
-          path: routes.formManagement,
-          element: <FormManagement />
+          path: '',
+          element: <AdminLayout />,
+          children: [
+            {
+              path: routes.dashboard,
+              element: <Dashboard />
+            },
+            {
+              path: routes.formManagement,
+              element: <FormManagement />
+            }
+          ]
         }
       ]
     },
@@ -87,7 +123,7 @@ function useRouteElements() {
     },
     {
       path: '',
-      element: <Request/>,
+      element: <Request />,
       children: [
         {
           path: routes.request,

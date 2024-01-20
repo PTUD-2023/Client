@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 import FloatingInput from 'src/components/FloatingInput'
 import WOW from 'wow.js'
 import 'animate.css' // Import các hiệu ứng CSS từ animate.css
-import InsuranceRegistrationForm from 'src/components/InsuranceRegistrationForm'
 
 const teamMemberList: { url: string; name: string }[] = [
   {
@@ -68,9 +67,7 @@ const serviceList: { url: string; name: string; description: string }[] = [
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [open, setOpen] = useState(false)
 
-  const handleOpen = () => setOpen(!open)
   useEffect(() => {
     const wow = new WOW()
     wow.init()
@@ -156,10 +153,10 @@ const Home = () => {
               <div className='flex flex-wrap '>
                 <div className='w-full lg:w-1/2 pr-4 pl-4'>
                   <h1 className='text-[64px] text-[#15233c] font-[Poppins,sans-serif] leading-[74px] font-bold mb-4 animate__animated animate__slideInDown'>
-                  Bảo hiểm nhân thọ không chỉ là cách để bạn bảo vệ tương lai của mình 
+                    Bảo hiểm nhân thọ không chỉ là cách để bạn bảo vệ tương lai của mình
                   </h1>
                   <p className='text-[20px] text-[#696e77] font-[ui-sans-serif] mb-5'>
-                  mà còn là món quà bạn để lại cho người thân sau này.
+                    mà còn là món quà bạn để lại cho người thân sau này.
                   </p>
                   <button className='px-12 py-4 rounded-[10px] text-center font-[ui-sans-serif] text-[17px] bg-[#015fc9] text-white hover:bg-[#0dd3f1]'>
                     Xem chi tiết
@@ -177,10 +174,10 @@ const Home = () => {
               <div className='flex flex-wrap '>
                 <div className='w-full lg:w-1/2 pr-4 pl-4'>
                   <h1 className='text-[64px] text-[#15233c] font-[Poppins,sans-serif] leading-[74px] font-bold mb-4 animated slideInDown'>
-                  Bảo hiểm nhân thọ giống như một món quà của bạn dành cho gia đình và người thân 
+                    Bảo hiểm nhân thọ giống như một món quà của bạn dành cho gia đình và người thân
                   </h1>
                   <p className='text-[20px] text-[#696e77] font-[ui-sans-serif] mb-5'>
-                  trong trường hợp bạn không còn ở bên họ nữa.
+                    trong trường hợp bạn không còn ở bên họ nữa.
                   </p>
                   <button className='px-12 py-4 rounded-[10px] text-center font-[ui-sans-serif] text-[17px] bg-[#015fc9] text-white hover:bg-[#0dd3f1]'>
                     Xem chi tiết
@@ -220,12 +217,11 @@ const Home = () => {
             <div className='lg:w-1/2 pr-4 pl-4 h-full wow animate__animated  animate__fadeInUp' data-wow-delay='0.5s'>
               <div className='h-full flex flex-col justify-between'>
                 <h1 className='text-[40px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold mb-10'>
-                  Chúng tôi sẽ giúp bạn bảo vệ tương lai
-                  cho người thân cũng như chính bạn
+                  Chúng tôi sẽ giúp bạn bảo vệ tương lai cho người thân cũng như chính bạn
                 </h1>
                 <p className='text-[20px] text-[#015fc9] font-[Poppins,sans-serif] mb-4'>
-                Để bảo vệ tương lai của mình và gia đình, bạn cần đầu tư vào bảo hiểm nhân thọ. 
-                Nó là một khoản đầu tư đáng giá cho tương lai của bạn.
+                  Để bảo vệ tương lai của mình và gia đình, bạn cần đầu tư vào bảo hiểm nhân thọ. Nó là một khoản đầu tư
+                  đáng giá cho tương lai của bạn.
                 </p>
                 <div className='flex flex-wrap mb-4'>
                   <div className='sm:w-1/2 pr-4 pl-4'>
@@ -445,7 +441,7 @@ const Home = () => {
                     </div>
                     <p className='mb-4 pl-10 pr-12 mt-4 text-[#696e77]'>{service.description}</p>
                     <button className='ml-10 px-4 py-[6px] rounded-[10px] text-center font-[ui-sans-serif] text-[17px] text-[#015fc9]  bg-white hover:text-white hover:bg-[#015fc9] self-start'>
-                    Đọc thêm
+                      Đọc thêm
                     </button>
                   </div>
                 </div>
@@ -466,10 +462,13 @@ const Home = () => {
             <div className='flex gap-8 h-full'>
               <div className='lg:w-1/2 pr-4 pl-4 wow animate__animated animate__fadeIn h-full' data-wow-delay='0.3s'>
                 <h1 className='text-[40px] font-[Poppins,sans-serif] leading-[48px] font-bold text-white mb-10'>
-                Công ty chúng tôi hướng đến mục đích “Giúp khách hàng đạt được an toàn tài chính trọn đời và tận hưởng cuộc sống khoẻ mạnh hơn”.
+                  Công ty chúng tôi hướng đến mục đích “Giúp khách hàng đạt được an toàn tài chính trọn đời và tận hưởng
+                  cuộc sống khoẻ mạnh hơn”.
                 </h1>
                 <p className='text-white mb-5'>
-                Chúng tôi không ngừng tìm kiếm các giải pháp sáng tạo, thiết thực để đáp ứng tốt nhất nhu cầu Khách hàng trong mọi giai đoạn cuộc đời. Chúng tôi mong muốn giúp Khách hàng làm chủ cuộc sống của mình, ngay từ bây giờ cho đến khi họ an nhàn nghỉ hưu.
+                  Chúng tôi không ngừng tìm kiếm các giải pháp sáng tạo, thiết thực để đáp ứng tốt nhất nhu cầu Khách
+                  hàng trong mọi giai đoạn cuộc đời. Chúng tôi mong muốn giúp Khách hàng làm chủ cuộc sống của mình,
+                  ngay từ bây giờ cho đến khi họ an nhàn nghỉ hưu.
                 </p>
                 <div className='bg-white rounded-[10px] p-4 mt-12'>
                   <div className='flex items-center bg-[#015fc9] rounded-[10px] p-4'>
@@ -562,7 +561,7 @@ const Home = () => {
         <div className='container mx-auto sm:px-4'>
           <div className='text-center mx-auto' style={{ maxWidth: '500px' }}>
             <h1 className='text-[40px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold mb-5'>
-            Họ nói gì về bảo hiểm của chúng tôi
+              Họ nói gì về bảo hiểm của chúng tôi
             </h1>
           </div>
           <div className='flex flex-wrap'>
@@ -619,7 +618,7 @@ const Home = () => {
                     alt=''
                   />
                   <p className='text-[20px] text-[#696e77] font-[Poppins,sans-serif]'>
-                  Insure luôn đóng góp tích cực trong các hoạt động hướng đến việc phát triển bền vững cho cộng đồng.
+                    Insure luôn đóng góp tích cực trong các hoạt động hướng đến việc phát triển bền vững cho cộng đồng.
                   </p>
                   <h5 className='text-[20px] text-[#15233c] font-[Poppins,sans-serif] leading-[48px] font-bold'>
                     Tên khách hàng
@@ -689,7 +688,6 @@ const Home = () => {
       >
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
-      <InsuranceRegistrationForm open={open} handleOpen={handleOpen} />
     </div>
   )
 }

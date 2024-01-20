@@ -13,6 +13,7 @@ const routes = {
   user: '/user',
   profile: '/user/profile',
   request: '/request',
+  registerInsurance: '/register-insurance'
 } as const
 
 export default routes

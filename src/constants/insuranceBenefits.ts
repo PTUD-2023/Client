@@ -98,7 +98,7 @@ export const additionalBenefits: AdditionalInsuranceType = {
     },
     {
       key: 'Death',
-      name: 'Bảo hiểm Tử vong do ốm đau, bệnh tật'
+      name: 'Bảo hiểm Tử vong\n do ốm đau, bệnh tật'
     }
   ]
 }

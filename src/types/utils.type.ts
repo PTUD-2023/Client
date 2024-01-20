@@ -13,3 +13,16 @@ export type SuccessResponse = {
   message: string
   key?: string
 }
+
+export type PageableType = {
+  pageNumber: number
+  pageSize: number
+  sort: {
+    empty: boolean
+    sorted: boolean
+    unsorted: boolean
+  }
+  offset: number
+  unpaged: boolean
+  paged: boolean
+}

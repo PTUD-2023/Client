@@ -13,15 +13,17 @@ interface InsurancePlanCardProps {
   }
 }
 
+export type AdditionalBenefitListType = {
+  outpatient: AdditionalBenefit[]
+  dental: AdditionalBenefit[]
+  maternity: AdditionalBenefit[]
+  death: AdditionalBenefit[]
+}
+
 const InsurancePlanCard = ({ insurancePlan, value, checkboxState }: InsurancePlanCardProps) => {
   const [isHasAdditionalBenefits, setIsHasAdditionalBenefits] = useState(false)
   const [totalPrice, setTotalPrice] = useState<number>(0)
-  const [additionalBenefits, setAdditionalBenefits] = useState<{
-    outpatient: AdditionalBenefit[]
-    dental: AdditionalBenefit[]
-    maternity: AdditionalBenefit[]
-    death: AdditionalBenefit[]
-  }>({
+  const [additionalBenefits, setAdditionalBenefits] = useState<AdditionalBenefitListType>({
     outpatient: [],
     dental: [],
     maternity: [],

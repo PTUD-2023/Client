@@ -53,7 +53,6 @@ const Login = ({ setIsLoginTab }: Props) => {
     },
 
     onSubmit: async (data) => {
-      console.log(data)
       await signInAccountMutation.mutate(data, {
         onSuccess: () => {
           // Khi login thành công thì sẽ gọi api get profile
