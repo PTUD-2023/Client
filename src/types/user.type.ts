@@ -18,8 +18,9 @@ export const userSchema = yup.object({
   firstName: yup.string().required('Họ của bạn là gì?'),
   phone: yup.string().required('Hãy nhập số điện thoại'),
   gender: yup.string(),
+  address: yup.string(),
   avatar: yup.object().shape({
-    url: yup.string()
+    url: yup.string() || null
   }),
   role: yup.string(),
   birthday: yup
@@ -32,5 +33,5 @@ export type User = yup.InferType<typeof userSchema>
 
 export type UserInfor = Pick<
   User,
-  'email' | 'lastName' | 'firstName' | 'avatar' | 'phone' | 'gender' | 'role' | 'birthday' | 'timeCreated'
+  'email' | 'lastName' | 'firstName' | 'avatar' | 'address' | 'phone' | 'gender' | 'role' | 'birthday' | 'timeCreated'
 >
